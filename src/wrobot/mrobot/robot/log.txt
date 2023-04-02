@@ -1,5 +1,0 @@
-ERROR: 2023/03/10 14:28:23 main.go:53: AddPortMapping 9990 fail
-ERROR: 2023/03/10 14:28:26 main.go:53: AddPortMapping 9991 fail
-INFO: 2023/03/10 14:28:27 main.go:66: State: boot
-ERROR: 2023/03/10 14:30:34 main.go:74: Dial error:errdial tcp 47.112.96.50:47002: connect: connection timed out
-INFO: 2023/03/10 14:30:39 main.go:66: State: boot
