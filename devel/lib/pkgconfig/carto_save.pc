@@ -1,0 +1,8 @@
+prefix=/home/pi/arebot_ws/devel
+
+Name: carto_save
+Description: Description of carto_save
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

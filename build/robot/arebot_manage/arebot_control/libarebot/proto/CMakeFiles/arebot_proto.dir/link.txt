@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/pi/arebot_ws/devel/lib/libarebot_proto.a  CMakeFiles/arebot_proto.dir/BotRequest.pb.cc.o CMakeFiles/arebot_proto.dir/BotResponse.pb.cc.o
+/usr/bin/ranlib /home/pi/arebot_ws/devel/lib/libarebot_proto.a

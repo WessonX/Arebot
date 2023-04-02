@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/pi/arebot_ws/install/setup.sh

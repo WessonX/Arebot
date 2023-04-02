@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/pi/arebot_ws/devel/lib/libarebot.a  CMakeFiles/arebot.dir/src/BotControl.cpp.o CMakeFiles/arebot.dir/src/Serial.cpp.o
+/usr/bin/ranlib /home/pi/arebot_ws/devel/lib/libarebot.a

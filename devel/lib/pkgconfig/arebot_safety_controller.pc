@@ -1,0 +1,8 @@
+prefix=/home/pi/arebot_ws/devel
+
+Name: arebot_safety_controller
+Description: Description of arebot_safety_controller
+Version: 0.0.0
+Cflags: -I/home/pi/arebot_ws/src/robot/arebot_manage/arebot_safety_controller/include
+Libs: -L${prefix}/lib -larebot_safety_controller
+Requires: nodelet roscpp std_msgs geometry_msgs

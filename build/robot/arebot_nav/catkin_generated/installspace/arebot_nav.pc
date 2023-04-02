@@ -1,0 +1,8 @@
+prefix=/home/pi/arebot_ws/install
+
+Name: arebot_nav
+Description: Description of arebot_nav
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: dynamic_reconfigure

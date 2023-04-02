@@ -1,0 +1,8 @@
+prefix=/home/pi/arebot_ws/devel
+
+Name: arebot_bus_proto
+Description: Description of arebot_bus_proto
+Version: 0.0.0
+Cflags: -I/home/pi/arebot_ws/src/robot/arebot_manage/arebot_bus_proto/include
+Libs: -L${prefix}/lib -larebot_bus_proto
+Requires: roscpp arebot_control

@@ -1,0 +1,15 @@
+<launch>
+    <!-- map name -->
+    <arg name="maps_path" value="$(find arebot_navigation)/maps" />
+    <arg name="map_name" default="carto_map" />
+
+    <!-- save map -->
+    <node pkg="carto_save" type="carto_save" name="carto_save" args="$(arg maps_path)/$(arg map_name)" />
+
+    <!-- move to pbstream_to_map.launch -->
+    <!-- <node pkg="cartographer_ros" type="cartographer_pbstream_to_ros_map" name="cartographer_pbstream_to_ros_map"
+        args="-map_filestem=$(find arebot_navigation)/maps/$(arg map_name) 
+            -pbstream_filename=$(find arebot_navigation)/maps/$(arg map_name).pbstream 
+            -resolution=0.05">
+    </node> -->
+</launch>

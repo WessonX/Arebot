@@ -1,0 +1,9 @@
+\subsubsection usage Usage
+\verbatim
+<node name="arebot_base" pkg="arebot_base" type="arebot_base">
+  <param name="kp" type="double" value="2.0" />
+  <param name="ki" type="double" value="0.6" />
+  <param name="kd" type="double" value="0.1" />
+</node>
+\endverbatim
+
