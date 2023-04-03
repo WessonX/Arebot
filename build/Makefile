@@ -298,17 +298,17 @@ _catkin_empty_exported_target/fast:
 .PHONY : _catkin_empty_exported_target/fast
 
 #=============================================================================
-# Target rules for targets named ls01d
+# Target rules for targets named cmd_vel_calib_node
 
 # Build rule for target.
-ls01d: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ls01d
-.PHONY : ls01d
+cmd_vel_calib_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cmd_vel_calib_node
+.PHONY : cmd_vel_calib_node
 
 # fast build rule for target.
-ls01d/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/ls01d.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/ls01d.dir/build
-.PHONY : ls01d/fast
+cmd_vel_calib_node/fast:
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/cmd_vel_calib_node.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/cmd_vel_calib_node.dir/build
+.PHONY : cmd_vel_calib_node/fast
 
 #=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_py
@@ -320,7 +320,7 @@ geometry_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 geometry_msgs_generate_messages_py/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
 .PHONY : geometry_msgs_generate_messages_py/fast
 
 #=============================================================================
@@ -333,60 +333,8 @@ geometry_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 geometry_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
 .PHONY : geometry_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named geometry_msgs_generate_messages_cpp
-
-# Build rule for target.
-geometry_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_cpp
-.PHONY : geometry_msgs_generate_messages_cpp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named sensor_msgs_generate_messages_py
-
-# Build rule for target.
-sensor_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_py
-.PHONY : sensor_msgs_generate_messages_py
-
-# fast build rule for target.
-sensor_msgs_generate_messages_py/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-.PHONY : sensor_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named sensor_msgs_generate_messages_nodejs
-
-# Build rule for target.
-sensor_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_nodejs
-.PHONY : sensor_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-sensor_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
-.PHONY : sensor_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named sensor_msgs_generate_messages_lisp
-
-# Build rule for target.
-sensor_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_lisp
-.PHONY : sensor_msgs_generate_messages_lisp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-.PHONY : sensor_msgs_generate_messages_lisp/fast
 
 #=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_eus
@@ -398,7 +346,7 @@ geometry_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 geometry_msgs_generate_messages_eus/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
 .PHONY : geometry_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -411,7 +359,7 @@ roscpp_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 roscpp_generate_messages_py/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/roscpp_generate_messages_py.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/roscpp_generate_messages_py.dir/build
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/roscpp_generate_messages_py.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/roscpp_generate_messages_py.dir/build
 .PHONY : roscpp_generate_messages_py/fast
 
 #=============================================================================
@@ -424,7 +372,7 @@ roscpp_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 roscpp_generate_messages_eus/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/roscpp_generate_messages_eus.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/roscpp_generate_messages_eus.dir/build
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/roscpp_generate_messages_eus.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/roscpp_generate_messages_eus.dir/build
 .PHONY : roscpp_generate_messages_eus/fast
 
 #=============================================================================
@@ -437,7 +385,7 @@ geometry_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 geometry_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
 .PHONY : geometry_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -450,7 +398,7 @@ roscpp_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 roscpp_generate_messages_lisp/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/roscpp_generate_messages_lisp.dir/build
 .PHONY : roscpp_generate_messages_lisp/fast
 
 #=============================================================================
@@ -463,8 +411,164 @@ rosgraph_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_lisp
+
+# Build rule for target.
+std_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_lisp
+.PHONY : std_msgs_generate_messages_lisp
+
+# fast build rule for target.
+std_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+.PHONY : std_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_cpp
+
+# Build rule for target.
+roscpp_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_cpp
+.PHONY : roscpp_generate_messages_cpp
+
+# fast build rule for target.
+roscpp_generate_messages_cpp/fast:
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/roscpp_generate_messages_cpp.dir/build
+.PHONY : roscpp_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named geometry_msgs_generate_messages_cpp
+
+# Build rule for target.
+geometry_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_cpp
+.PHONY : geometry_msgs_generate_messages_cpp
+
+# fast build rule for target.
+geometry_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+.PHONY : geometry_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_eus
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_eus
+.PHONY : rosgraph_msgs_generate_messages_eus
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_eus/fast:
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
+.PHONY : rosgraph_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_lisp
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_lisp
+.PHONY : rosgraph_msgs_generate_messages_lisp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_cpp
+
+# Build rule for target.
+std_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_cpp
+.PHONY : std_msgs_generate_messages_cpp
+
+# fast build rule for target.
+std_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+.PHONY : std_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_nodejs
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_nodejs
+.PHONY : rosgraph_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
+.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_py
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_py
+.PHONY : rosgraph_msgs_generate_messages_py
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_py/fast:
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+.PHONY : rosgraph_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_eus
+
+# Build rule for target.
+std_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_eus
+.PHONY : std_msgs_generate_messages_eus
+
+# fast build rule for target.
+std_msgs_generate_messages_eus/fast:
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/std_msgs_generate_messages_eus.dir/build
+.PHONY : std_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_nodejs
+
+# Build rule for target.
+std_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_nodejs
+.PHONY : std_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+std_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
+.PHONY : std_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_nodejs
+
+# Build rule for target.
+roscpp_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_nodejs
+.PHONY : roscpp_generate_messages_nodejs
+
+# fast build rule for target.
+roscpp_generate_messages_nodejs/fast:
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
+.PHONY : roscpp_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_py
+
+# Build rule for target.
+std_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_py
+.PHONY : std_msgs_generate_messages_py
+
+# fast build rule for target.
+std_msgs_generate_messages_py/fast:
+	$(MAKE) -f robot/arebot_correction/cmd_vel_calib/CMakeFiles/std_msgs_generate_messages_py.dir/build.make robot/arebot_correction/cmd_vel_calib/CMakeFiles/std_msgs_generate_messages_py.dir/build
+.PHONY : std_msgs_generate_messages_py/fast
 
 #=============================================================================
 # Target rules for targets named sensor_msgs_generate_messages_eus
@@ -480,6 +584,32 @@ sensor_msgs_generate_messages_eus/fast:
 .PHONY : sensor_msgs_generate_messages_eus/fast
 
 #=============================================================================
+# Target rules for targets named sensor_msgs_generate_messages_lisp
+
+# Build rule for target.
+sensor_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_lisp
+.PHONY : sensor_msgs_generate_messages_lisp
+
+# fast build rule for target.
+sensor_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
+.PHONY : sensor_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named sensor_msgs_generate_messages_nodejs
+
+# Build rule for target.
+sensor_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_nodejs
+.PHONY : sensor_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+sensor_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
+.PHONY : sensor_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
 # Target rules for targets named sensor_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -493,147 +623,30 @@ sensor_msgs_generate_messages_cpp/fast:
 .PHONY : sensor_msgs_generate_messages_cpp/fast
 
 #=============================================================================
-# Target rules for targets named std_msgs_generate_messages_lisp
+# Target rules for targets named sensor_msgs_generate_messages_py
 
 # Build rule for target.
-std_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_lisp
-.PHONY : std_msgs_generate_messages_lisp
+sensor_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_py
+.PHONY : sensor_msgs_generate_messages_py
 
 # fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
+sensor_msgs_generate_messages_py/fast:
+	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
+.PHONY : sensor_msgs_generate_messages_py/fast
 
 #=============================================================================
-# Target rules for targets named roscpp_generate_messages_cpp
+# Target rules for targets named ls01d
 
 # Build rule for target.
-roscpp_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_cpp
-.PHONY : roscpp_generate_messages_cpp
+ls01d: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ls01d
+.PHONY : ls01d
 
 # fast build rule for target.
-roscpp_generate_messages_cpp/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/roscpp_generate_messages_cpp.dir/build
-.PHONY : roscpp_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_eus
-
-# Build rule for target.
-rosgraph_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_eus
-.PHONY : rosgraph_msgs_generate_messages_eus
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_eus/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
-.PHONY : rosgraph_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_lisp
-
-# Build rule for target.
-rosgraph_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_lisp
-.PHONY : rosgraph_msgs_generate_messages_lisp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named std_msgs_generate_messages_cpp
-
-# Build rule for target.
-std_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_cpp
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_nodejs
-
-# Build rule for target.
-rosgraph_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_nodejs
-.PHONY : rosgraph_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_py
-
-# Build rule for target.
-rosgraph_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_py
-.PHONY : rosgraph_msgs_generate_messages_py
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_py/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-.PHONY : rosgraph_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named std_msgs_generate_messages_eus
-
-# Build rule for target.
-std_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_eus
-.PHONY : std_msgs_generate_messages_eus
-
-# fast build rule for target.
-std_msgs_generate_messages_eus/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/std_msgs_generate_messages_eus.dir/build
-.PHONY : std_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named std_msgs_generate_messages_nodejs
-
-# Build rule for target.
-std_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_nodejs
-.PHONY : std_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-std_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
-.PHONY : std_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named roscpp_generate_messages_nodejs
-
-# Build rule for target.
-roscpp_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_nodejs
-.PHONY : roscpp_generate_messages_nodejs
-
-# fast build rule for target.
-roscpp_generate_messages_nodejs/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-.PHONY : roscpp_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named std_msgs_generate_messages_py
-
-# Build rule for target.
-std_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_py
-.PHONY : std_msgs_generate_messages_py
-
-# fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/std_msgs_generate_messages_py.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
+ls01d/fast:
+	$(MAKE) -f sensors/laser/ls01d_driver/CMakeFiles/ls01d.dir/build.make sensors/laser/ls01d_driver/CMakeFiles/ls01d.dir/build
+.PHONY : ls01d/fast
 
 #=============================================================================
 # Target rules for targets named nodelet_generate_messages_lisp
@@ -779,6 +792,84 @@ arebot_safety_controller/fast:
 .PHONY : arebot_safety_controller/fast
 
 #=============================================================================
+# Target rules for targets named dynamic_reconfigure_generate_messages_eus
+
+# Build rule for target.
+dynamic_reconfigure_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_eus
+.PHONY : dynamic_reconfigure_generate_messages_eus
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_eus/fast:
+	$(MAKE) -f robot/arebot_correction/arebot_param_set/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make robot/arebot_correction/arebot_param_set/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named dynamic_reconfigure_generate_messages_lisp
+
+# Build rule for target.
+dynamic_reconfigure_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_lisp
+.PHONY : dynamic_reconfigure_generate_messages_lisp
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_lisp/fast:
+	$(MAKE) -f robot/arebot_correction/arebot_param_set/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make robot/arebot_correction/arebot_param_set/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named dynamic_reconfigure_generate_messages_cpp
+
+# Build rule for target.
+dynamic_reconfigure_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_cpp
+.PHONY : dynamic_reconfigure_generate_messages_cpp
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_cpp/fast:
+	$(MAKE) -f robot/arebot_correction/arebot_param_set/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make robot/arebot_correction/arebot_param_set/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named dynamic_reconfigure_generate_messages_py
+
+# Build rule for target.
+dynamic_reconfigure_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_py
+.PHONY : dynamic_reconfigure_generate_messages_py
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_py/fast:
+	$(MAKE) -f robot/arebot_correction/arebot_param_set/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make robot/arebot_correction/arebot_param_set/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named dynamic_reconfigure_generate_messages_nodejs
+
+# Build rule for target.
+dynamic_reconfigure_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_nodejs
+.PHONY : dynamic_reconfigure_generate_messages_nodejs
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_nodejs/fast:
+	$(MAKE) -f robot/arebot_correction/arebot_param_set/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build.make robot/arebot_correction/arebot_param_set/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named dynamic_reconfigure_gencfg
+
+# Build rule for target.
+dynamic_reconfigure_gencfg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_gencfg
+.PHONY : dynamic_reconfigure_gencfg
+
+# fast build rule for target.
+dynamic_reconfigure_gencfg/fast:
+	$(MAKE) -f robot/arebot_correction/arebot_param_set/CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make robot/arebot_correction/arebot_param_set/CMakeFiles/dynamic_reconfigure_gencfg.dir/build
+.PHONY : dynamic_reconfigure_gencfg/fast
+
+#=============================================================================
 # Target rules for targets named ls01b_v2_genpy
 
 # Build rule for target.
@@ -805,71 +896,6 @@ ls01b_v2_generate_messages_py/fast:
 .PHONY : ls01b_v2_generate_messages_py/fast
 
 #=============================================================================
-# Target rules for targets named ls01b_v2_gennodejs
-
-# Build rule for target.
-ls01b_v2_gennodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ls01b_v2_gennodejs
-.PHONY : ls01b_v2_gennodejs
-
-# fast build rule for target.
-ls01b_v2_gennodejs/fast:
-	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gennodejs.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gennodejs.dir/build
-.PHONY : ls01b_v2_gennodejs/fast
-
-#=============================================================================
-# Target rules for targets named ls01b_v2_generate_messages_nodejs
-
-# Build rule for target.
-ls01b_v2_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ls01b_v2_generate_messages_nodejs
-.PHONY : ls01b_v2_generate_messages_nodejs
-
-# fast build rule for target.
-ls01b_v2_generate_messages_nodejs/fast:
-	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_nodejs.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_nodejs.dir/build
-.PHONY : ls01b_v2_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named ls01b_v2_generate_messages_lisp
-
-# Build rule for target.
-ls01b_v2_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ls01b_v2_generate_messages_lisp
-.PHONY : ls01b_v2_generate_messages_lisp
-
-# fast build rule for target.
-ls01b_v2_generate_messages_lisp/fast:
-	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_lisp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_lisp.dir/build
-.PHONY : ls01b_v2_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_cpp
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_cpp
-.PHONY : dynamic_reconfigure_generate_messages_cpp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_cpp/fast:
-	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named std_srvs_generate_messages_cpp
-
-# Build rule for target.
-std_srvs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_cpp
-.PHONY : std_srvs_generate_messages_cpp
-
-# fast build rule for target.
-std_srvs_generate_messages_cpp/fast:
-	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
-.PHONY : std_srvs_generate_messages_cpp/fast
-
-#=============================================================================
 # Target rules for targets named std_srvs_generate_messages_nodejs
 
 # Build rule for target.
@@ -881,45 +907,6 @@ std_srvs_generate_messages_nodejs: cmake_check_build_system
 std_srvs_generate_messages_nodejs/fast:
 	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
 .PHONY : std_srvs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_lisp
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_lisp
-.PHONY : dynamic_reconfigure_generate_messages_lisp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_lisp/fast:
-	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named ls01b_v2_generate_messages_eus
-
-# Build rule for target.
-ls01b_v2_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ls01b_v2_generate_messages_eus
-.PHONY : ls01b_v2_generate_messages_eus
-
-# fast build rule for target.
-ls01b_v2_generate_messages_eus/fast:
-	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_eus.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_eus.dir/build
-.PHONY : ls01b_v2_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named std_srvs_generate_messages_py
-
-# Build rule for target.
-std_srvs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_py
-.PHONY : std_srvs_generate_messages_py
-
-# fast build rule for target.
-std_srvs_generate_messages_py/fast:
-	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_py.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_py.dir/build
-.PHONY : std_srvs_generate_messages_py/fast
 
 #=============================================================================
 # Target rules for targets named std_srvs_generate_messages_eus
@@ -935,6 +922,19 @@ std_srvs_generate_messages_eus/fast:
 .PHONY : std_srvs_generate_messages_eus/fast
 
 #=============================================================================
+# Target rules for targets named std_srvs_generate_messages_cpp
+
+# Build rule for target.
+std_srvs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_cpp
+.PHONY : std_srvs_generate_messages_cpp
+
+# fast build rule for target.
+std_srvs_generate_messages_cpp/fast:
+	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
+.PHONY : std_srvs_generate_messages_cpp/fast
+
+#=============================================================================
 # Target rules for targets named ls01b_v2_generate_messages
 
 # Build rule for target.
@@ -946,58 +946,6 @@ ls01b_v2_generate_messages: cmake_check_build_system
 ls01b_v2_generate_messages/fast:
 	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages.dir/build
 .PHONY : ls01b_v2_generate_messages/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_nodejs
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_nodejs
-.PHONY : dynamic_reconfigure_generate_messages_nodejs
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_nodejs/fast:
-	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_gencfg
-
-# Build rule for target.
-dynamic_reconfigure_gencfg: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_gencfg
-.PHONY : dynamic_reconfigure_gencfg
-
-# fast build rule for target.
-dynamic_reconfigure_gencfg/fast:
-	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_gencfg.dir/build
-.PHONY : dynamic_reconfigure_gencfg/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_py
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_py
-.PHONY : dynamic_reconfigure_generate_messages_py
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_py/fast:
-	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_eus
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_eus
-.PHONY : dynamic_reconfigure_generate_messages_eus
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_eus/fast:
-	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_eus/fast
 
 #=============================================================================
 # Target rules for targets named _ls01b_v2_generate_messages_check_deps_resolution
@@ -1013,56 +961,17 @@ _ls01b_v2_generate_messages_check_deps_resolution/fast:
 .PHONY : _ls01b_v2_generate_messages_check_deps_resolution/fast
 
 #=============================================================================
-# Target rules for targets named ls01b_v2
+# Target rules for targets named ls01b_v2_generate_messages_lisp
 
 # Build rule for target.
-ls01b_v2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ls01b_v2
-.PHONY : ls01b_v2
+ls01b_v2_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ls01b_v2_generate_messages_lisp
+.PHONY : ls01b_v2_generate_messages_lisp
 
 # fast build rule for target.
-ls01b_v2/fast:
-	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2.dir/build
-.PHONY : ls01b_v2/fast
-
-#=============================================================================
-# Target rules for targets named ls01b_v2_genlisp
-
-# Build rule for target.
-ls01b_v2_genlisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ls01b_v2_genlisp
-.PHONY : ls01b_v2_genlisp
-
-# fast build rule for target.
-ls01b_v2_genlisp/fast:
-	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_genlisp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_genlisp.dir/build
-.PHONY : ls01b_v2_genlisp/fast
-
-#=============================================================================
-# Target rules for targets named ls01b_v2_geneus
-
-# Build rule for target.
-ls01b_v2_geneus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ls01b_v2_geneus
-.PHONY : ls01b_v2_geneus
-
-# fast build rule for target.
-ls01b_v2_geneus/fast:
-	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_geneus.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_geneus.dir/build
-.PHONY : ls01b_v2_geneus/fast
-
-#=============================================================================
-# Target rules for targets named ls01b_v2_generate_messages_cpp
-
-# Build rule for target.
-ls01b_v2_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ls01b_v2_generate_messages_cpp
-.PHONY : ls01b_v2_generate_messages_cpp
-
-# fast build rule for target.
-ls01b_v2_generate_messages_cpp/fast:
-	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_cpp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_cpp.dir/build
-.PHONY : ls01b_v2_generate_messages_cpp/fast
+ls01b_v2_generate_messages_lisp/fast:
+	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_lisp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_lisp.dir/build
+.PHONY : ls01b_v2_generate_messages_lisp/fast
 
 #=============================================================================
 # Target rules for targets named ls01b_v2_gencfg
@@ -1102,6 +1011,110 @@ ls01b_v2_gencpp: cmake_check_build_system
 ls01b_v2_gencpp/fast:
 	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gencpp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gencpp.dir/build
 .PHONY : ls01b_v2_gencpp/fast
+
+#=============================================================================
+# Target rules for targets named std_srvs_generate_messages_py
+
+# Build rule for target.
+std_srvs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_py
+.PHONY : std_srvs_generate_messages_py
+
+# fast build rule for target.
+std_srvs_generate_messages_py/fast:
+	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_py.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_py.dir/build
+.PHONY : std_srvs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named ls01b_v2_generate_messages_eus
+
+# Build rule for target.
+ls01b_v2_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ls01b_v2_generate_messages_eus
+.PHONY : ls01b_v2_generate_messages_eus
+
+# fast build rule for target.
+ls01b_v2_generate_messages_eus/fast:
+	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_eus.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_eus.dir/build
+.PHONY : ls01b_v2_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named ls01b_v2
+
+# Build rule for target.
+ls01b_v2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ls01b_v2
+.PHONY : ls01b_v2
+
+# fast build rule for target.
+ls01b_v2/fast:
+	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2.dir/build
+.PHONY : ls01b_v2/fast
+
+#=============================================================================
+# Target rules for targets named ls01b_v2_geneus
+
+# Build rule for target.
+ls01b_v2_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ls01b_v2_geneus
+.PHONY : ls01b_v2_geneus
+
+# fast build rule for target.
+ls01b_v2_geneus/fast:
+	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_geneus.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_geneus.dir/build
+.PHONY : ls01b_v2_geneus/fast
+
+#=============================================================================
+# Target rules for targets named ls01b_v2_generate_messages_cpp
+
+# Build rule for target.
+ls01b_v2_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ls01b_v2_generate_messages_cpp
+.PHONY : ls01b_v2_generate_messages_cpp
+
+# fast build rule for target.
+ls01b_v2_generate_messages_cpp/fast:
+	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_cpp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_cpp.dir/build
+.PHONY : ls01b_v2_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named ls01b_v2_genlisp
+
+# Build rule for target.
+ls01b_v2_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ls01b_v2_genlisp
+.PHONY : ls01b_v2_genlisp
+
+# fast build rule for target.
+ls01b_v2_genlisp/fast:
+	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_genlisp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_genlisp.dir/build
+.PHONY : ls01b_v2_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named ls01b_v2_generate_messages_nodejs
+
+# Build rule for target.
+ls01b_v2_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ls01b_v2_generate_messages_nodejs
+.PHONY : ls01b_v2_generate_messages_nodejs
+
+# fast build rule for target.
+ls01b_v2_generate_messages_nodejs/fast:
+	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_nodejs.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_nodejs.dir/build
+.PHONY : ls01b_v2_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named ls01b_v2_gennodejs
+
+# Build rule for target.
+ls01b_v2_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ls01b_v2_gennodejs
+.PHONY : ls01b_v2_gennodejs
+
+# fast build rule for target.
+ls01b_v2_gennodejs/fast:
+	$(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gennodejs.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gennodejs.dir/build
+.PHONY : ls01b_v2_gennodejs/fast
 
 #=============================================================================
 # Target rules for targets named arebot_control_generate_messages_eus
@@ -1325,6 +1338,19 @@ arebot_bus_proto/fast:
 .PHONY : arebot_bus_proto/fast
 
 #=============================================================================
+# Target rules for targets named atlas_cam
+
+# Build rule for target.
+atlas_cam: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 atlas_cam
+.PHONY : atlas_cam
+
+# fast build rule for target.
+atlas_cam/fast:
+	$(MAKE) -f sensors/camera/atlas_cam/CMakeFiles/atlas_cam.dir/build.make sensors/camera/atlas_cam/CMakeFiles/atlas_cam.dir/build
+.PHONY : atlas_cam/fast
+
+#=============================================================================
 # Target rules for targets named do_calib
 
 # Build rule for target.
@@ -1334,7 +1360,7 @@ do_calib: cmake_check_build_system
 
 # fast build rule for target.
 do_calib/fast:
-	$(MAKE) -f sensors/imu/imu_calib/CMakeFiles/do_calib.dir/build.make sensors/imu/imu_calib/CMakeFiles/do_calib.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_calib/CMakeFiles/do_calib.dir/build.make robot/arebot_correction/imu/imu_calib/CMakeFiles/do_calib.dir/build
 .PHONY : do_calib/fast
 
 #=============================================================================
@@ -1347,7 +1373,7 @@ accel_calib: cmake_check_build_system
 
 # fast build rule for target.
 accel_calib/fast:
-	$(MAKE) -f sensors/imu/imu_calib/CMakeFiles/accel_calib.dir/build.make sensors/imu/imu_calib/CMakeFiles/accel_calib.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_calib/CMakeFiles/accel_calib.dir/build.make robot/arebot_correction/imu/imu_calib/CMakeFiles/accel_calib.dir/build
 .PHONY : accel_calib/fast
 
 #=============================================================================
@@ -1360,7 +1386,7 @@ apply_calib: cmake_check_build_system
 
 # fast build rule for target.
 apply_calib/fast:
-	$(MAKE) -f sensors/imu/imu_calib/CMakeFiles/apply_calib.dir/build.make sensors/imu/imu_calib/CMakeFiles/apply_calib.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_calib/CMakeFiles/apply_calib.dir/build.make robot/arebot_correction/imu/imu_calib/CMakeFiles/apply_calib.dir/build
 .PHONY : apply_calib/fast
 
 #=============================================================================
@@ -1455,17 +1481,30 @@ arebot_base_gencfg/fast:
 .PHONY : arebot_base_gencfg/fast
 
 #=============================================================================
-# Target rules for targets named arebot_nav_gencfg
+# Target rules for targets named szar_ultrasonic
 
 # Build rule for target.
-arebot_nav_gencfg: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 arebot_nav_gencfg
-.PHONY : arebot_nav_gencfg
+szar_ultrasonic: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 szar_ultrasonic
+.PHONY : szar_ultrasonic
 
 # fast build rule for target.
-arebot_nav_gencfg/fast:
-	$(MAKE) -f robot/arebot_nav/CMakeFiles/arebot_nav_gencfg.dir/build.make robot/arebot_nav/CMakeFiles/arebot_nav_gencfg.dir/build
-.PHONY : arebot_nav_gencfg/fast
+szar_ultrasonic/fast:
+	$(MAKE) -f sensors/ultrasonic/szar_ultrasonic/CMakeFiles/szar_ultrasonic.dir/build.make sensors/ultrasonic/szar_ultrasonic/CMakeFiles/szar_ultrasonic.dir/build
+.PHONY : szar_ultrasonic/fast
+
+#=============================================================================
+# Target rules for targets named arebot_calib_gencfg
+
+# Build rule for target.
+arebot_calib_gencfg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 arebot_calib_gencfg
+.PHONY : arebot_calib_gencfg
+
+# fast build rule for target.
+arebot_calib_gencfg/fast:
+	$(MAKE) -f robot/arebot_correction/arebot_calib/CMakeFiles/arebot_calib_gencfg.dir/build.make robot/arebot_correction/arebot_calib/CMakeFiles/arebot_calib_gencfg.dir/build
+.PHONY : arebot_calib_gencfg/fast
 
 #=============================================================================
 # Target rules for targets named clean_test_results_imu_filter_madgwick
@@ -1477,7 +1516,7 @@ clean_test_results_imu_filter_madgwick: cmake_check_build_system
 
 # fast build rule for target.
 clean_test_results_imu_filter_madgwick/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/clean_test_results_imu_filter_madgwick.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/clean_test_results_imu_filter_madgwick.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/clean_test_results_imu_filter_madgwick.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/clean_test_results_imu_filter_madgwick.dir/build
 .PHONY : clean_test_results_imu_filter_madgwick/fast
 
 #=============================================================================
@@ -1490,7 +1529,7 @@ _run_tests_imu_filter_madgwick_gtest_imu_filter_madgwick-madgwick_test: cmake_ch
 
 # fast build rule for target.
 _run_tests_imu_filter_madgwick_gtest_imu_filter_madgwick-madgwick_test/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/_run_tests_imu_filter_madgwick_gtest_imu_filter_madgwick-madgwick_test.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/_run_tests_imu_filter_madgwick_gtest_imu_filter_madgwick-madgwick_test.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/_run_tests_imu_filter_madgwick_gtest_imu_filter_madgwick-madgwick_test.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/_run_tests_imu_filter_madgwick_gtest_imu_filter_madgwick-madgwick_test.dir/build
 .PHONY : _run_tests_imu_filter_madgwick_gtest_imu_filter_madgwick-madgwick_test/fast
 
 #=============================================================================
@@ -1503,7 +1542,7 @@ _run_tests_imu_filter_madgwick_gtest: cmake_check_build_system
 
 # fast build rule for target.
 _run_tests_imu_filter_madgwick_gtest/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/_run_tests_imu_filter_madgwick_gtest.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/_run_tests_imu_filter_madgwick_gtest.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/_run_tests_imu_filter_madgwick_gtest.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/_run_tests_imu_filter_madgwick_gtest.dir/build
 .PHONY : _run_tests_imu_filter_madgwick_gtest/fast
 
 #=============================================================================
@@ -1516,7 +1555,7 @@ run_tests_imu_filter_madgwick_gtest: cmake_check_build_system
 
 # fast build rule for target.
 run_tests_imu_filter_madgwick_gtest/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/run_tests_imu_filter_madgwick_gtest.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/run_tests_imu_filter_madgwick_gtest.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/run_tests_imu_filter_madgwick_gtest.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/run_tests_imu_filter_madgwick_gtest.dir/build
 .PHONY : run_tests_imu_filter_madgwick_gtest/fast
 
 #=============================================================================
@@ -1529,7 +1568,7 @@ run_tests_imu_filter_madgwick: cmake_check_build_system
 
 # fast build rule for target.
 run_tests_imu_filter_madgwick/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/run_tests_imu_filter_madgwick.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/run_tests_imu_filter_madgwick.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/run_tests_imu_filter_madgwick.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/run_tests_imu_filter_madgwick.dir/build
 .PHONY : run_tests_imu_filter_madgwick/fast
 
 #=============================================================================
@@ -1542,7 +1581,7 @@ imu_filter_madgwick-madgwick_test: cmake_check_build_system
 
 # fast build rule for target.
 imu_filter_madgwick-madgwick_test/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/imu_filter_madgwick-madgwick_test.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/imu_filter_madgwick-madgwick_test.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/imu_filter_madgwick-madgwick_test.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/imu_filter_madgwick-madgwick_test.dir/build
 .PHONY : imu_filter_madgwick-madgwick_test/fast
 
 #=============================================================================
@@ -1555,7 +1594,7 @@ imu_filter_node: cmake_check_build_system
 
 # fast build rule for target.
 imu_filter_node/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/imu_filter_node.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/imu_filter_node.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/imu_filter_node.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/imu_filter_node.dir/build
 .PHONY : imu_filter_node/fast
 
 #=============================================================================
@@ -1568,7 +1607,7 @@ imu_filter: cmake_check_build_system
 
 # fast build rule for target.
 imu_filter/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/imu_filter.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/imu_filter.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/imu_filter.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/imu_filter.dir/build
 .PHONY : imu_filter/fast
 
 #=============================================================================
@@ -1581,7 +1620,7 @@ tf2_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_py/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
 .PHONY : tf2_msgs_generate_messages_py/fast
 
 #=============================================================================
@@ -1594,7 +1633,7 @@ actionlib_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
 .PHONY : actionlib_msgs_generate_messages_cpp/fast
 
 #=============================================================================
@@ -1607,7 +1646,7 @@ tf2_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
 .PHONY : tf2_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -1620,7 +1659,7 @@ tf2_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_eus/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build
 .PHONY : tf2_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -1633,7 +1672,7 @@ _run_tests_imu_filter_madgwick: cmake_check_build_system
 
 # fast build rule for target.
 _run_tests_imu_filter_madgwick/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/_run_tests_imu_filter_madgwick.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/_run_tests_imu_filter_madgwick.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/_run_tests_imu_filter_madgwick.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/_run_tests_imu_filter_madgwick.dir/build
 .PHONY : _run_tests_imu_filter_madgwick/fast
 
 #=============================================================================
@@ -1646,7 +1685,7 @@ actionlib_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_nodejs/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_nodejs.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_nodejs.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_nodejs.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_nodejs.dir/build
 .PHONY : actionlib_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -1659,7 +1698,7 @@ run_tests_imu_filter_madgwick_gtest_imu_filter_madgwick-madgwick_test: cmake_che
 
 # fast build rule for target.
 run_tests_imu_filter_madgwick_gtest_imu_filter_madgwick-madgwick_test/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/run_tests_imu_filter_madgwick_gtest_imu_filter_madgwick-madgwick_test.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/run_tests_imu_filter_madgwick_gtest_imu_filter_madgwick-madgwick_test.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/run_tests_imu_filter_madgwick_gtest_imu_filter_madgwick-madgwick_test.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/run_tests_imu_filter_madgwick_gtest_imu_filter_madgwick-madgwick_test.dir/build
 .PHONY : run_tests_imu_filter_madgwick_gtest_imu_filter_madgwick-madgwick_test/fast
 
 #=============================================================================
@@ -1672,7 +1711,7 @@ tf2_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build
 .PHONY : tf2_msgs_generate_messages_lisp/fast
 
 #=============================================================================
@@ -1685,7 +1724,7 @@ actionlib_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_py/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_py.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_py.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_py.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_py.dir/build
 .PHONY : actionlib_generate_messages_py/fast
 
 #=============================================================================
@@ -1698,7 +1737,7 @@ tf2_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
 .PHONY : tf2_msgs_generate_messages_cpp/fast
 
 #=============================================================================
@@ -1711,7 +1750,7 @@ actionlib_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_eus/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
 .PHONY : actionlib_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -1724,7 +1763,7 @@ imu_filter_nodelet: cmake_check_build_system
 
 # fast build rule for target.
 imu_filter_nodelet/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.dir/build
 .PHONY : imu_filter_nodelet/fast
 
 #=============================================================================
@@ -1737,7 +1776,7 @@ actionlib_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
 .PHONY : actionlib_msgs_generate_messages_lisp/fast
 
 #=============================================================================
@@ -1750,7 +1789,7 @@ actionlib_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
 .PHONY : actionlib_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -1763,7 +1802,7 @@ actionlib_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_lisp/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_lisp.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_lisp.dir/build
 .PHONY : actionlib_generate_messages_lisp/fast
 
 #=============================================================================
@@ -1776,7 +1815,7 @@ actionlib_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_py/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
 .PHONY : actionlib_msgs_generate_messages_py/fast
 
 #=============================================================================
@@ -1789,7 +1828,7 @@ actionlib_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_cpp/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_cpp.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_cpp.dir/build
 .PHONY : actionlib_generate_messages_cpp/fast
 
 #=============================================================================
@@ -1802,7 +1841,7 @@ actionlib_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_eus/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_eus.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_eus.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_eus.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/actionlib_generate_messages_eus.dir/build
 .PHONY : actionlib_generate_messages_eus/fast
 
 #=============================================================================
@@ -1815,86 +1854,8 @@ imu_filter_madgwick_gencfg: cmake_check_build_system
 
 # fast build rule for target.
 imu_filter_madgwick_gencfg/fast:
-	$(MAKE) -f sensors/imu/imu_filter_madgwick/CMakeFiles/imu_filter_madgwick_gencfg.dir/build.make sensors/imu/imu_filter_madgwick/CMakeFiles/imu_filter_madgwick_gencfg.dir/build
+	$(MAKE) -f robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/imu_filter_madgwick_gencfg.dir/build.make robot/arebot_correction/imu/imu_filter_madgwick/CMakeFiles/imu_filter_madgwick_gencfg.dir/build
 .PHONY : imu_filter_madgwick_gencfg/fast
-
-#=============================================================================
-# Target rules for targets named cartographer_ros_msgs_generate_messages_eus
-
-# Build rule for target.
-cartographer_ros_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cartographer_ros_msgs_generate_messages_eus
-.PHONY : cartographer_ros_msgs_generate_messages_eus
-
-# fast build rule for target.
-cartographer_ros_msgs_generate_messages_eus/fast:
-	$(MAKE) -f robot/carto_save/CMakeFiles/cartographer_ros_msgs_generate_messages_eus.dir/build.make robot/carto_save/CMakeFiles/cartographer_ros_msgs_generate_messages_eus.dir/build
-.PHONY : cartographer_ros_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named cartographer_ros_msgs_generate_messages_cpp
-
-# Build rule for target.
-cartographer_ros_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cartographer_ros_msgs_generate_messages_cpp
-.PHONY : cartographer_ros_msgs_generate_messages_cpp
-
-# fast build rule for target.
-cartographer_ros_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f robot/carto_save/CMakeFiles/cartographer_ros_msgs_generate_messages_cpp.dir/build.make robot/carto_save/CMakeFiles/cartographer_ros_msgs_generate_messages_cpp.dir/build
-.PHONY : cartographer_ros_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named carto_save
-
-# Build rule for target.
-carto_save: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 carto_save
-.PHONY : carto_save
-
-# fast build rule for target.
-carto_save/fast:
-	$(MAKE) -f robot/carto_save/CMakeFiles/carto_save.dir/build.make robot/carto_save/CMakeFiles/carto_save.dir/build
-.PHONY : carto_save/fast
-
-#=============================================================================
-# Target rules for targets named cartographer_ros_msgs_generate_messages_lisp
-
-# Build rule for target.
-cartographer_ros_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cartographer_ros_msgs_generate_messages_lisp
-.PHONY : cartographer_ros_msgs_generate_messages_lisp
-
-# fast build rule for target.
-cartographer_ros_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f robot/carto_save/CMakeFiles/cartographer_ros_msgs_generate_messages_lisp.dir/build.make robot/carto_save/CMakeFiles/cartographer_ros_msgs_generate_messages_lisp.dir/build
-.PHONY : cartographer_ros_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named cartographer_ros_msgs_generate_messages_nodejs
-
-# Build rule for target.
-cartographer_ros_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cartographer_ros_msgs_generate_messages_nodejs
-.PHONY : cartographer_ros_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-cartographer_ros_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f robot/carto_save/CMakeFiles/cartographer_ros_msgs_generate_messages_nodejs.dir/build.make robot/carto_save/CMakeFiles/cartographer_ros_msgs_generate_messages_nodejs.dir/build
-.PHONY : cartographer_ros_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named cartographer_ros_msgs_generate_messages_py
-
-# Build rule for target.
-cartographer_ros_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cartographer_ros_msgs_generate_messages_py
-.PHONY : cartographer_ros_msgs_generate_messages_py
-
-# fast build rule for target.
-cartographer_ros_msgs_generate_messages_py/fast:
-	$(MAKE) -f robot/carto_save/CMakeFiles/cartographer_ros_msgs_generate_messages_py.dir/build.make robot/carto_save/CMakeFiles/cartographer_ros_msgs_generate_messages_py.dir/build
-.PHONY : cartographer_ros_msgs_generate_messages_py/fast
 
 #=============================================================================
 # Target rules for targets named usb_cam_node
@@ -1971,23 +1932,18 @@ help:
 	@echo "... gtest_main"
 	@echo "... gtest"
 	@echo "... _catkin_empty_exported_target"
-	@echo "... ls01d"
+	@echo "... cmd_vel_calib_node"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... geometry_msgs_generate_messages_cpp"
-	@echo "... sensor_msgs_generate_messages_py"
-	@echo "... sensor_msgs_generate_messages_nodejs"
-	@echo "... sensor_msgs_generate_messages_lisp"
 	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... geometry_msgs_generate_messages_nodejs"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
-	@echo "... sensor_msgs_generate_messages_eus"
-	@echo "... sensor_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_cpp"
+	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_cpp"
@@ -1997,6 +1953,12 @@ help:
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_py"
+	@echo "... sensor_msgs_generate_messages_eus"
+	@echo "... sensor_msgs_generate_messages_lisp"
+	@echo "... sensor_msgs_generate_messages_nodejs"
+	@echo "... sensor_msgs_generate_messages_cpp"
+	@echo "... sensor_msgs_generate_messages_py"
+	@echo "... ls01d"
 	@echo "... nodelet_generate_messages_lisp"
 	@echo "... bond_generate_messages_cpp"
 	@echo "... nodelet_generate_messages_nodejs"
@@ -2008,31 +1970,31 @@ help:
 	@echo "... nodelet_generate_messages_py"
 	@echo "... bond_generate_messages_nodejs"
 	@echo "... arebot_safety_controller"
-	@echo "... ls01b_v2_genpy"
-	@echo "... ls01b_v2_generate_messages_py"
-	@echo "... ls01b_v2_gennodejs"
-	@echo "... ls01b_v2_generate_messages_nodejs"
-	@echo "... ls01b_v2_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_generate_messages_cpp"
-	@echo "... std_srvs_generate_messages_cpp"
-	@echo "... std_srvs_generate_messages_nodejs"
+	@echo "... dynamic_reconfigure_generate_messages_eus"
 	@echo "... dynamic_reconfigure_generate_messages_lisp"
-	@echo "... ls01b_v2_generate_messages_eus"
-	@echo "... std_srvs_generate_messages_py"
-	@echo "... std_srvs_generate_messages_eus"
-	@echo "... ls01b_v2_generate_messages"
+	@echo "... dynamic_reconfigure_generate_messages_cpp"
+	@echo "... dynamic_reconfigure_generate_messages_py"
 	@echo "... dynamic_reconfigure_generate_messages_nodejs"
 	@echo "... dynamic_reconfigure_gencfg"
-	@echo "... dynamic_reconfigure_generate_messages_py"
-	@echo "... dynamic_reconfigure_generate_messages_eus"
+	@echo "... ls01b_v2_genpy"
+	@echo "... ls01b_v2_generate_messages_py"
+	@echo "... std_srvs_generate_messages_nodejs"
+	@echo "... std_srvs_generate_messages_eus"
+	@echo "... std_srvs_generate_messages_cpp"
+	@echo "... ls01b_v2_generate_messages"
 	@echo "... _ls01b_v2_generate_messages_check_deps_resolution"
-	@echo "... ls01b_v2"
-	@echo "... ls01b_v2_genlisp"
-	@echo "... ls01b_v2_geneus"
-	@echo "... ls01b_v2_generate_messages_cpp"
+	@echo "... ls01b_v2_generate_messages_lisp"
 	@echo "... ls01b_v2_gencfg"
 	@echo "... std_srvs_generate_messages_lisp"
 	@echo "... ls01b_v2_gencpp"
+	@echo "... std_srvs_generate_messages_py"
+	@echo "... ls01b_v2_generate_messages_eus"
+	@echo "... ls01b_v2"
+	@echo "... ls01b_v2_geneus"
+	@echo "... ls01b_v2_generate_messages_cpp"
+	@echo "... ls01b_v2_genlisp"
+	@echo "... ls01b_v2_generate_messages_nodejs"
+	@echo "... ls01b_v2_gennodejs"
 	@echo "... arebot_control_generate_messages_eus"
 	@echo "... arebot_control_gencpp"
 	@echo "... arebot_control_gennodejs"
@@ -2050,6 +2012,7 @@ help:
 	@echo "... arebot"
 	@echo "... arebot_proto"
 	@echo "... arebot_bus_proto"
+	@echo "... atlas_cam"
 	@echo "... do_calib"
 	@echo "... accel_calib"
 	@echo "... apply_calib"
@@ -2060,7 +2023,8 @@ help:
 	@echo "... controller_manager_msgs_generate_messages_cpp"
 	@echo "... controller_manager_msgs_generate_messages_lisp"
 	@echo "... arebot_base_gencfg"
-	@echo "... arebot_nav_gencfg"
+	@echo "... szar_ultrasonic"
+	@echo "... arebot_calib_gencfg"
 	@echo "... clean_test_results_imu_filter_madgwick"
 	@echo "... _run_tests_imu_filter_madgwick_gtest_imu_filter_madgwick-madgwick_test"
 	@echo "... _run_tests_imu_filter_madgwick_gtest"
@@ -2088,12 +2052,6 @@ help:
 	@echo "... actionlib_generate_messages_cpp"
 	@echo "... actionlib_generate_messages_eus"
 	@echo "... imu_filter_madgwick_gencfg"
-	@echo "... cartographer_ros_msgs_generate_messages_eus"
-	@echo "... cartographer_ros_msgs_generate_messages_cpp"
-	@echo "... carto_save"
-	@echo "... cartographer_ros_msgs_generate_messages_lisp"
-	@echo "... cartographer_ros_msgs_generate_messages_nodejs"
-	@echo "... cartographer_ros_msgs_generate_messages_py"
 	@echo "... usb_cam_node"
 	@echo "... usb_cam"
 	@echo "... yocs_cmd_vel_mux_gencfg"

@@ -102,6 +102,17 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -113,17 +124,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -198,81 +198,6 @@ ls01b_v2_generate_messages_py/fast:
 .PHONY : ls01b_v2_generate_messages_py/fast
 
 # Convenience name for target.
-sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gennodejs.dir/rule:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gennodejs.dir/rule
-.PHONY : sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gennodejs.dir/rule
-
-# Convenience name for target.
-ls01b_v2_gennodejs: sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gennodejs.dir/rule
-
-.PHONY : ls01b_v2_gennodejs
-
-# fast build rule for target.
-ls01b_v2_gennodejs/fast:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gennodejs.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gennodejs.dir/build
-.PHONY : ls01b_v2_gennodejs/fast
-
-# Convenience name for target.
-sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_nodejs.dir/rule:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_nodejs.dir/rule
-.PHONY : sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-ls01b_v2_generate_messages_nodejs: sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_nodejs.dir/rule
-
-.PHONY : ls01b_v2_generate_messages_nodejs
-
-# fast build rule for target.
-ls01b_v2_generate_messages_nodejs/fast:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_nodejs.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_nodejs.dir/build
-.PHONY : ls01b_v2_generate_messages_nodejs/fast
-
-# Convenience name for target.
-sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_lisp.dir/rule:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_lisp.dir/rule
-.PHONY : sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-ls01b_v2_generate_messages_lisp: sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_lisp.dir/rule
-
-.PHONY : ls01b_v2_generate_messages_lisp
-
-# fast build rule for target.
-ls01b_v2_generate_messages_lisp/fast:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_lisp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_lisp.dir/build
-.PHONY : ls01b_v2_generate_messages_lisp/fast
-
-# Convenience name for target.
-sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-.PHONY : sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_cpp: sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_cpp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_cpp/fast:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
-
-# Convenience name for target.
-sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-.PHONY : sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_cpp: sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-
-.PHONY : std_srvs_generate_messages_cpp
-
-# fast build rule for target.
-std_srvs_generate_messages_cpp/fast:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
-.PHONY : std_srvs_generate_messages_cpp/fast
-
-# Convenience name for target.
 sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule:
 	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
 .PHONY : sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
@@ -286,51 +211,6 @@ std_srvs_generate_messages_nodejs: sensors/laser/ls01b_v2/CMakeFiles/std_srvs_ge
 std_srvs_generate_messages_nodejs/fast:
 	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
 .PHONY : std_srvs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-.PHONY : sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_lisp: sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_lisp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_lisp/fast:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
-
-# Convenience name for target.
-sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_eus.dir/rule:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_eus.dir/rule
-.PHONY : sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-ls01b_v2_generate_messages_eus: sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_eus.dir/rule
-
-.PHONY : ls01b_v2_generate_messages_eus
-
-# fast build rule for target.
-ls01b_v2_generate_messages_eus/fast:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_eus.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_eus.dir/build
-.PHONY : ls01b_v2_generate_messages_eus/fast
-
-# Convenience name for target.
-sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-.PHONY : sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_py: sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-.PHONY : std_srvs_generate_messages_py
-
-# fast build rule for target.
-std_srvs_generate_messages_py/fast:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_py.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_py.dir/build
-.PHONY : std_srvs_generate_messages_py/fast
 
 # Convenience name for target.
 sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_eus.dir/rule:
@@ -348,6 +228,21 @@ std_srvs_generate_messages_eus/fast:
 .PHONY : std_srvs_generate_messages_eus/fast
 
 # Convenience name for target.
+sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+.PHONY : sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_cpp: sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+
+.PHONY : std_srvs_generate_messages_cpp
+
+# fast build rule for target.
+std_srvs_generate_messages_cpp/fast:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
+.PHONY : std_srvs_generate_messages_cpp/fast
+
+# Convenience name for target.
 sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages.dir/rule:
 	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages.dir/rule
 .PHONY : sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages.dir/rule
@@ -361,66 +256,6 @@ ls01b_v2_generate_messages: sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_
 ls01b_v2_generate_messages/fast:
 	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages.dir/build
 .PHONY : ls01b_v2_generate_messages/fast
-
-# Convenience name for target.
-sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-.PHONY : sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_nodejs: sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_nodejs
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_nodejs/fast:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
-
-# Convenience name for target.
-sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-.PHONY : sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_gencfg: sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-
-.PHONY : dynamic_reconfigure_gencfg
-
-# fast build rule for target.
-dynamic_reconfigure_gencfg/fast:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_gencfg.dir/build
-.PHONY : dynamic_reconfigure_gencfg/fast
-
-# Convenience name for target.
-sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-.PHONY : sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_py: sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_py
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_py/fast:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_py/fast
-
-# Convenience name for target.
-sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-.PHONY : sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_eus: sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_eus
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_eus/fast:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_eus/fast
 
 # Convenience name for target.
 sensors/laser/ls01b_v2/CMakeFiles/_ls01b_v2_generate_messages_check_deps_resolution.dir/rule:
@@ -438,64 +273,19 @@ _ls01b_v2_generate_messages_check_deps_resolution/fast:
 .PHONY : _ls01b_v2_generate_messages_check_deps_resolution/fast
 
 # Convenience name for target.
-sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2.dir/rule:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2.dir/rule
-.PHONY : sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2.dir/rule
+sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_lisp.dir/rule:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_lisp.dir/rule
+.PHONY : sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-ls01b_v2: sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2.dir/rule
+ls01b_v2_generate_messages_lisp: sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_lisp.dir/rule
 
-.PHONY : ls01b_v2
+.PHONY : ls01b_v2_generate_messages_lisp
 
 # fast build rule for target.
-ls01b_v2/fast:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2.dir/build
-.PHONY : ls01b_v2/fast
-
-# Convenience name for target.
-sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_genlisp.dir/rule:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_genlisp.dir/rule
-.PHONY : sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_genlisp.dir/rule
-
-# Convenience name for target.
-ls01b_v2_genlisp: sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_genlisp.dir/rule
-
-.PHONY : ls01b_v2_genlisp
-
-# fast build rule for target.
-ls01b_v2_genlisp/fast:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_genlisp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_genlisp.dir/build
-.PHONY : ls01b_v2_genlisp/fast
-
-# Convenience name for target.
-sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_geneus.dir/rule:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_geneus.dir/rule
-.PHONY : sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_geneus.dir/rule
-
-# Convenience name for target.
-ls01b_v2_geneus: sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_geneus.dir/rule
-
-.PHONY : ls01b_v2_geneus
-
-# fast build rule for target.
-ls01b_v2_geneus/fast:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_geneus.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_geneus.dir/build
-.PHONY : ls01b_v2_geneus/fast
-
-# Convenience name for target.
-sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_cpp.dir/rule:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_cpp.dir/rule
-.PHONY : sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-ls01b_v2_generate_messages_cpp: sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_cpp.dir/rule
-
-.PHONY : ls01b_v2_generate_messages_cpp
-
-# fast build rule for target.
-ls01b_v2_generate_messages_cpp/fast:
-	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_cpp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_cpp.dir/build
-.PHONY : ls01b_v2_generate_messages_cpp/fast
+ls01b_v2_generate_messages_lisp/fast:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_lisp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_lisp.dir/build
+.PHONY : ls01b_v2_generate_messages_lisp/fast
 
 # Convenience name for target.
 sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gencfg.dir/rule:
@@ -541,6 +331,126 @@ ls01b_v2_gencpp: sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gencpp.dir/rule
 ls01b_v2_gencpp/fast:
 	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gencpp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gencpp.dir/build
 .PHONY : ls01b_v2_gencpp/fast
+
+# Convenience name for target.
+sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+.PHONY : sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_py: sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+
+.PHONY : std_srvs_generate_messages_py
+
+# fast build rule for target.
+std_srvs_generate_messages_py/fast:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_py.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/std_srvs_generate_messages_py.dir/build
+.PHONY : std_srvs_generate_messages_py/fast
+
+# Convenience name for target.
+sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_eus.dir/rule:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_eus.dir/rule
+.PHONY : sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+ls01b_v2_generate_messages_eus: sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_eus.dir/rule
+
+.PHONY : ls01b_v2_generate_messages_eus
+
+# fast build rule for target.
+ls01b_v2_generate_messages_eus/fast:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_eus.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_eus.dir/build
+.PHONY : ls01b_v2_generate_messages_eus/fast
+
+# Convenience name for target.
+sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2.dir/rule:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2.dir/rule
+.PHONY : sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2.dir/rule
+
+# Convenience name for target.
+ls01b_v2: sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2.dir/rule
+
+.PHONY : ls01b_v2
+
+# fast build rule for target.
+ls01b_v2/fast:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2.dir/build
+.PHONY : ls01b_v2/fast
+
+# Convenience name for target.
+sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_geneus.dir/rule:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_geneus.dir/rule
+.PHONY : sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_geneus.dir/rule
+
+# Convenience name for target.
+ls01b_v2_geneus: sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_geneus.dir/rule
+
+.PHONY : ls01b_v2_geneus
+
+# fast build rule for target.
+ls01b_v2_geneus/fast:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_geneus.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_geneus.dir/build
+.PHONY : ls01b_v2_geneus/fast
+
+# Convenience name for target.
+sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_cpp.dir/rule:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_cpp.dir/rule
+.PHONY : sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+ls01b_v2_generate_messages_cpp: sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_cpp.dir/rule
+
+.PHONY : ls01b_v2_generate_messages_cpp
+
+# fast build rule for target.
+ls01b_v2_generate_messages_cpp/fast:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_cpp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_cpp.dir/build
+.PHONY : ls01b_v2_generate_messages_cpp/fast
+
+# Convenience name for target.
+sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_genlisp.dir/rule:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_genlisp.dir/rule
+.PHONY : sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_genlisp.dir/rule
+
+# Convenience name for target.
+ls01b_v2_genlisp: sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_genlisp.dir/rule
+
+.PHONY : ls01b_v2_genlisp
+
+# fast build rule for target.
+ls01b_v2_genlisp/fast:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_genlisp.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_genlisp.dir/build
+.PHONY : ls01b_v2_genlisp/fast
+
+# Convenience name for target.
+sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_nodejs.dir/rule:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_nodejs.dir/rule
+.PHONY : sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+ls01b_v2_generate_messages_nodejs: sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_nodejs.dir/rule
+
+.PHONY : ls01b_v2_generate_messages_nodejs
+
+# fast build rule for target.
+ls01b_v2_generate_messages_nodejs/fast:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_nodejs.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_generate_messages_nodejs.dir/build
+.PHONY : ls01b_v2_generate_messages_nodejs/fast
+
+# Convenience name for target.
+sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gennodejs.dir/rule:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gennodejs.dir/rule
+.PHONY : sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gennodejs.dir/rule
+
+# Convenience name for target.
+ls01b_v2_gennodejs: sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gennodejs.dir/rule
+
+.PHONY : ls01b_v2_gennodejs
+
+# fast build rule for target.
+ls01b_v2_gennodejs/fast:
+	cd /home/pi/arebot_ws/build && $(MAKE) -f sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gennodejs.dir/build.make sensors/laser/ls01b_v2/CMakeFiles/ls01b_v2_gennodejs.dir/build
+.PHONY : ls01b_v2_gennodejs/fast
 
 src/ls01b.o: src/ls01b.cpp.o
 
@@ -608,32 +518,26 @@ help:
 	@echo "... edit_cache"
 	@echo "... ls01b_v2_genpy"
 	@echo "... ls01b_v2_generate_messages_py"
-	@echo "... ls01b_v2_gennodejs"
-	@echo "... ls01b_v2_generate_messages_nodejs"
-	@echo "... ls01b_v2_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_generate_messages_cpp"
-	@echo "... install"
-	@echo "... std_srvs_generate_messages_cpp"
 	@echo "... std_srvs_generate_messages_nodejs"
-	@echo "... dynamic_reconfigure_generate_messages_lisp"
-	@echo "... ls01b_v2_generate_messages_eus"
-	@echo "... std_srvs_generate_messages_py"
 	@echo "... test"
 	@echo "... std_srvs_generate_messages_eus"
+	@echo "... install"
+	@echo "... std_srvs_generate_messages_cpp"
 	@echo "... ls01b_v2_generate_messages"
-	@echo "... dynamic_reconfigure_generate_messages_nodejs"
-	@echo "... dynamic_reconfigure_gencfg"
-	@echo "... dynamic_reconfigure_generate_messages_py"
-	@echo "... dynamic_reconfigure_generate_messages_eus"
 	@echo "... _ls01b_v2_generate_messages_check_deps_resolution"
-	@echo "... list_install_components"
-	@echo "... ls01b_v2"
-	@echo "... ls01b_v2_genlisp"
-	@echo "... ls01b_v2_geneus"
-	@echo "... ls01b_v2_generate_messages_cpp"
+	@echo "... ls01b_v2_generate_messages_lisp"
 	@echo "... ls01b_v2_gencfg"
 	@echo "... std_srvs_generate_messages_lisp"
 	@echo "... ls01b_v2_gencpp"
+	@echo "... std_srvs_generate_messages_py"
+	@echo "... ls01b_v2_generate_messages_eus"
+	@echo "... list_install_components"
+	@echo "... ls01b_v2"
+	@echo "... ls01b_v2_geneus"
+	@echo "... ls01b_v2_generate_messages_cpp"
+	@echo "... ls01b_v2_genlisp"
+	@echo "... ls01b_v2_generate_messages_nodejs"
+	@echo "... ls01b_v2_gennodejs"
 	@echo "... src/ls01b.o"
 	@echo "... src/ls01b.i"
 	@echo "... src/ls01b.s"

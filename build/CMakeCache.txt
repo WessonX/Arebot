@@ -299,6 +299,9 @@ LSB_RELEASE_EXECUTABLE:FILEPATH=/usr/bin/lsb_release
 //Path to a program.
 NOSETESTS:FILEPATH=/usr/bin/nosetests-2.7
 
+//The directory containing a CMake configuration file for OpenCV.
+OpenCV_DIR:PATH=OpenCV_DIR-NOTFOUND
+
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
@@ -345,7 +348,7 @@ RT_LIBRARY:FILEPATH=/usr/lib/aarch64-linux-gnu/librt.so
 SETUPTOOLS_DEB_LAYOUT:BOOL=ON
 
 //Name of the computer/site where compile is being run
-SITE:STRING=NanoPi-M4v2
+SITE:STRING=NanoPC-T4
 
 //LSB Distrib tag
 UBUNTU:BOOL=TRUE
@@ -405,6 +408,12 @@ arebot_bus_proto_LIB_DEPENDS:STATIC=general;arebot_control;general;/opt/ros/melo
 arebot_bus_proto_SOURCE_DIR:STATIC=/home/pi/arebot_ws/src/robot/arebot_manage/arebot_bus_proto
 
 //Value Computed by CMake
+arebot_calib_BINARY_DIR:STATIC=/home/pi/arebot_ws/build/robot/arebot_correction/arebot_calib
+
+//Value Computed by CMake
+arebot_calib_SOURCE_DIR:STATIC=/home/pi/arebot_ws/src/robot/arebot_correction/arebot_calib
+
+//Value Computed by CMake
 arebot_control_BINARY_DIR:STATIC=/home/pi/arebot_ws/build/robot/arebot_manage/arebot_control
 
 //The directory containing a CMake configuration file for arebot_control.
@@ -417,16 +426,16 @@ arebot_control_LIB_DEPENDS:STATIC=general;arebot;general;/opt/ros/melodic/lib/li
 arebot_control_SOURCE_DIR:STATIC=/home/pi/arebot_ws/src/robot/arebot_manage/arebot_control
 
 //Value Computed by CMake
-arebot_nav_BINARY_DIR:STATIC=/home/pi/arebot_ws/build/robot/arebot_nav
-
-//Value Computed by CMake
-arebot_nav_SOURCE_DIR:STATIC=/home/pi/arebot_ws/src/robot/arebot_nav
-
-//Value Computed by CMake
 arebot_navigation_BINARY_DIR:STATIC=/home/pi/arebot_ws/build/robot/arebot_navigation
 
 //Value Computed by CMake
 arebot_navigation_SOURCE_DIR:STATIC=/home/pi/arebot_ws/src/robot/arebot_navigation
+
+//Value Computed by CMake
+arebot_param_set_BINARY_DIR:STATIC=/home/pi/arebot_ws/build/robot/arebot_correction/arebot_param_set
+
+//Value Computed by CMake
+arebot_param_set_SOURCE_DIR:STATIC=/home/pi/arebot_ws/src/robot/arebot_correction/arebot_param_set
 
 //Dependencies for the target
 arebot_proto_LIB_DEPENDS:STATIC=general;/usr/lib/aarch64-linux-gnu/libprotobuf.so;general;-lpthread;
@@ -446,6 +455,12 @@ arebot_slam_BINARY_DIR:STATIC=/home/pi/arebot_ws/build/robot/arebot_slam
 //Value Computed by CMake
 arebot_slam_SOURCE_DIR:STATIC=/home/pi/arebot_ws/src/robot/arebot_slam
 
+//Value Computed by CMake
+atlas_cam_BINARY_DIR:STATIC=/home/pi/arebot_ws/build/sensors/camera/atlas_cam
+
+//Value Computed by CMake
+atlas_cam_SOURCE_DIR:STATIC=/home/pi/arebot_ws/src/sensors/camera/atlas_cam
+
 //The directory containing a CMake configuration file for bond.
 bond_DIR:PATH=/opt/ros/melodic/share/bond/cmake
 
@@ -458,15 +473,6 @@ camera_calibration_parsers_DIR:PATH=/opt/ros/melodic/share/camera_calibration_pa
 //The directory containing a CMake configuration file for camera_info_manager.
 camera_info_manager_DIR:PATH=/opt/ros/melodic/share/camera_info_manager/cmake
 
-//Value Computed by CMake
-carto_save_BINARY_DIR:STATIC=/home/pi/arebot_ws/build/robot/carto_save
-
-//Value Computed by CMake
-carto_save_SOURCE_DIR:STATIC=/home/pi/arebot_ws/src/robot/carto_save
-
-//The directory containing a CMake configuration file for cartographer_ros_msgs.
-cartographer_ros_msgs_DIR:PATH=/home/pi/carto_ws/install_isolated/share/cartographer_ros_msgs/cmake
-
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/melodic/share/catkin/cmake
 
@@ -475,6 +481,12 @@ class_loader_DIR:PATH=/opt/ros/melodic/share/class_loader/cmake
 
 //The directory containing a CMake configuration file for cmake_modules.
 cmake_modules_DIR:PATH=/opt/ros/melodic/share/cmake_modules/cmake
+
+//Value Computed by CMake
+cmd_vel_calib_BINARY_DIR:STATIC=/home/pi/arebot_ws/build/robot/arebot_correction/cmd_vel_calib
+
+//Value Computed by CMake
+cmd_vel_calib_SOURCE_DIR:STATIC=/home/pi/arebot_ws/src/robot/arebot_correction/cmd_vel_calib
 
 //The directory containing a CMake configuration file for controller_interface.
 controller_interface_DIR:PATH=/opt/ros/melodic/share/controller_interface/cmake
@@ -487,6 +499,9 @@ controller_manager_msgs_DIR:PATH=/opt/ros/melodic/share/controller_manager_msgs/
 
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/melodic/share/cpp_common/cmake
+
+//The directory containing a CMake configuration file for cv_bridge.
+cv_bridge_DIR:PATH=/opt/ros/melodic/share/cv_bridge/cmake
 
 //The directory containing a CMake configuration file for dynamic_reconfigure.
 dynamic_reconfigure_DIR:PATH=/opt/ros/melodic/share/dynamic_reconfigure/cmake
@@ -568,19 +583,19 @@ hardware_interface_DIR:PATH=/opt/ros/melodic/share/hardware_interface/cmake
 image_transport_DIR:PATH=/opt/ros/melodic/share/image_transport/cmake
 
 //Value Computed by CMake
-imu_calib_BINARY_DIR:STATIC=/home/pi/arebot_ws/build/sensors/imu/imu_calib
+imu_calib_BINARY_DIR:STATIC=/home/pi/arebot_ws/build/robot/arebot_correction/imu/imu_calib
 
 //Value Computed by CMake
-imu_calib_SOURCE_DIR:STATIC=/home/pi/arebot_ws/src/sensors/imu/imu_calib
+imu_calib_SOURCE_DIR:STATIC=/home/pi/arebot_ws/src/robot/arebot_correction/imu/imu_calib
 
 //Dependencies for the target
 imu_filter_LIB_DEPENDS:STATIC=general;/opt/ros/melodic/lib/liborocos-kdl.so;general;/opt/ros/melodic/lib/liborocos-kdl.so.1.4.0;general;/opt/ros/melodic/lib/libtf2_ros.so;general;/opt/ros/melodic/lib/libactionlib.so;general;/opt/ros/melodic/lib/libtf2.so;general;/opt/ros/melodic/lib/libnodeletlib.so;general;/opt/ros/melodic/lib/libbondcpp.so;general;/usr/lib/aarch64-linux-gnu/libuuid.so;general;/opt/ros/melodic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/aarch64-linux-gnu/libdl.so;general;/opt/ros/melodic/lib/libroslib.so;general;/opt/ros/melodic/lib/librospack.so;general;/usr/lib/aarch64-linux-gnu/libpython2.7.so;general;/usr/lib/aarch64-linux-gnu/libboost_program_options.so;general;/usr/lib/aarch64-linux-gnu/libtinyxml2.so;general;/opt/ros/melodic/lib/libmessage_filters.so;general;/opt/ros/melodic/lib/libroscpp.so;general;/usr/lib/aarch64-linux-gnu/libboost_filesystem.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/aarch64-linux-gnu/liblog4cxx.so;general;/usr/lib/aarch64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libdynamic_reconfigure_config_init_mutex.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/aarch64-linux-gnu/libboost_system.so;general;/usr/lib/aarch64-linux-gnu/libboost_thread.so;general;/usr/lib/aarch64-linux-gnu/libboost_chrono.so;general;/usr/lib/aarch64-linux-gnu/libboost_date_time.so;general;/usr/lib/aarch64-linux-gnu/libboost_atomic.so;general;/usr/lib/aarch64-linux-gnu/libpthread.so;general;/usr/lib/aarch64-linux-gnu/libconsole_bridge.so.0.4;general;/usr/lib/aarch64-linux-gnu/libboost_system.so;general;/usr/lib/aarch64-linux-gnu/libboost_thread.so;general;/usr/lib/aarch64-linux-gnu/libboost_signals.so;general;/usr/lib/aarch64-linux-gnu/libboost_chrono.so;general;/usr/lib/aarch64-linux-gnu/libboost_date_time.so;general;/usr/lib/aarch64-linux-gnu/libboost_atomic.so;general;/usr/lib/aarch64-linux-gnu/libpthread.so;
 
 //Value Computed by CMake
-imu_filter_madgwick_BINARY_DIR:STATIC=/home/pi/arebot_ws/build/sensors/imu/imu_filter_madgwick
+imu_filter_madgwick_BINARY_DIR:STATIC=/home/pi/arebot_ws/build/robot/arebot_correction/imu/imu_filter_madgwick
 
 //Value Computed by CMake
-imu_filter_madgwick_SOURCE_DIR:STATIC=/home/pi/arebot_ws/src/sensors/imu/imu_filter_madgwick
+imu_filter_madgwick_SOURCE_DIR:STATIC=/home/pi/arebot_ws/src/robot/arebot_correction/imu/imu_filter_madgwick
 
 //Dependencies for the target
 imu_filter_nodelet_LIB_DEPENDS:STATIC=general;imu_filter;general;/opt/ros/melodic/lib/liborocos-kdl.so;general;/opt/ros/melodic/lib/liborocos-kdl.so.1.4.0;general;/opt/ros/melodic/lib/libtf2_ros.so;general;/opt/ros/melodic/lib/libactionlib.so;general;/opt/ros/melodic/lib/libtf2.so;general;/opt/ros/melodic/lib/libnodeletlib.so;general;/opt/ros/melodic/lib/libbondcpp.so;general;/usr/lib/aarch64-linux-gnu/libuuid.so;general;/opt/ros/melodic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/aarch64-linux-gnu/libdl.so;general;/opt/ros/melodic/lib/libroslib.so;general;/opt/ros/melodic/lib/librospack.so;general;/usr/lib/aarch64-linux-gnu/libpython2.7.so;general;/usr/lib/aarch64-linux-gnu/libboost_program_options.so;general;/usr/lib/aarch64-linux-gnu/libtinyxml2.so;general;/opt/ros/melodic/lib/libmessage_filters.so;general;/opt/ros/melodic/lib/libroscpp.so;general;/usr/lib/aarch64-linux-gnu/libboost_filesystem.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/aarch64-linux-gnu/liblog4cxx.so;general;/usr/lib/aarch64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libdynamic_reconfigure_config_init_mutex.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/aarch64-linux-gnu/libboost_system.so;general;/usr/lib/aarch64-linux-gnu/libboost_thread.so;general;/usr/lib/aarch64-linux-gnu/libboost_chrono.so;general;/usr/lib/aarch64-linux-gnu/libboost_date_time.so;general;/usr/lib/aarch64-linux-gnu/libboost_atomic.so;general;/usr/lib/aarch64-linux-gnu/libpthread.so;general;/usr/lib/aarch64-linux-gnu/libconsole_bridge.so.0.4;general;/usr/lib/aarch64-linux-gnu/libboost_system.so;general;/usr/lib/aarch64-linux-gnu/libboost_thread.so;general;/usr/lib/aarch64-linux-gnu/libboost_signals.so;general;/usr/lib/aarch64-linux-gnu/libboost_chrono.so;general;/usr/lib/aarch64-linux-gnu/libboost_date_time.so;general;/usr/lib/aarch64-linux-gnu/libboost_atomic.so;general;/usr/lib/aarch64-linux-gnu/libpthread.so;
@@ -628,10 +643,10 @@ pluginlib_DIR:PATH=/opt/ros/melodic/share/pluginlib/cmake
 realtime_tools_DIR:PATH=/opt/ros/melodic/share/realtime_tools/cmake
 
 //Value Computed by CMake
-rikirobot_nav_BINARY_DIR:STATIC=/home/pi/arebot_ws/build/robot/arebot_nav
+rikirobot_nav_BINARY_DIR:STATIC=/home/pi/arebot_ws/build/robot/arebot_robot/arebot_nav
 
 //Value Computed by CMake
-rikirobot_nav_SOURCE_DIR:STATIC=/home/pi/arebot_ws/src/robot/arebot_nav
+rikirobot_nav_SOURCE_DIR:STATIC=/home/pi/arebot_ws/src/robot/arebot_robot/arebot_nav
 
 //Value Computed by CMake
 robot_description_BINARY_DIR:STATIC=/home/pi/arebot_ws/build/robot/arebot_robot/robot_description
@@ -657,6 +672,9 @@ rosgraph_DIR:PATH=/opt/ros/melodic/share/rosgraph/cmake
 //The directory containing a CMake configuration file for rosgraph_msgs.
 rosgraph_msgs_DIR:PATH=/opt/ros/melodic/share/rosgraph_msgs/cmake
 
+//The directory containing a CMake configuration file for roslaunch.
+roslaunch_DIR:PATH=/opt/ros/melodic/share/roslaunch/cmake
+
 //The directory containing a CMake configuration file for roslib.
 roslib_DIR:PATH=/opt/ros/melodic/share/roslib/cmake
 
@@ -680,6 +698,15 @@ std_msgs_DIR:PATH=/opt/ros/melodic/share/std_msgs/cmake
 
 //The directory containing a CMake configuration file for std_srvs.
 std_srvs_DIR:PATH=/opt/ros/melodic/share/std_srvs/cmake
+
+//Value Computed by CMake
+szar_ultrasonic_BINARY_DIR:STATIC=/home/pi/arebot_ws/build/sensors/ultrasonic/szar_ultrasonic
+
+//Dependencies for the target
+szar_ultrasonic_LIB_DEPENDS:STATIC=general;arebot_control;general;/opt/ros/melodic/lib/libnodeletlib.so;general;/opt/ros/melodic/lib/libbondcpp.so;general;/usr/lib/aarch64-linux-gnu/libuuid.so;general;/opt/ros/melodic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/aarch64-linux-gnu/libdl.so;general;/opt/ros/melodic/lib/libroslib.so;general;/opt/ros/melodic/lib/librospack.so;general;/usr/lib/aarch64-linux-gnu/libpython2.7.so;general;/usr/lib/aarch64-linux-gnu/libboost_program_options.so;general;/usr/lib/aarch64-linux-gnu/libtinyxml2.so;general;/opt/ros/melodic/lib/libroscpp.so;general;/usr/lib/aarch64-linux-gnu/libboost_filesystem.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/aarch64-linux-gnu/liblog4cxx.so;general;/usr/lib/aarch64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/aarch64-linux-gnu/libboost_system.so;general;/usr/lib/aarch64-linux-gnu/libboost_thread.so;general;/usr/lib/aarch64-linux-gnu/libboost_chrono.so;general;/usr/lib/aarch64-linux-gnu/libboost_date_time.so;general;/usr/lib/aarch64-linux-gnu/libboost_atomic.so;general;/usr/lib/aarch64-linux-gnu/libpthread.so;general;/usr/lib/aarch64-linux-gnu/libconsole_bridge.so.0.4;
+
+//Value Computed by CMake
+szar_ultrasonic_SOURCE_DIR:STATIC=/home/pi/arebot_ws/src/sensors/ultrasonic/szar_ultrasonic
 
 //Value Computed by CMake
 teleop_twist_keyboard_BINARY_DIR:STATIC=/home/pi/arebot_ws/build/teletop/teleop_twist_keyboard
@@ -865,7 +892,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=23
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=26
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -915,7 +942,7 @@ FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.1()]
 //Details about finding Protobuf
 FIND_PACKAGE_MESSAGE_DETAILS_Protobuf:INTERNAL=[/usr/lib/aarch64-linux-gnu/libprotobuf.so;-lpthread][/usr/include][v3.0.0()]
 //Details about finding PythonInterp
-FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python2][v2.7.17()]
+FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python2][v2.7.15()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 GMOCK_FROM_SOURCE_FOUND:INTERNAL=TRUE

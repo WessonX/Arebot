@@ -1,0 +1,8 @@
+prefix=/home/pi/arebot_ws/devel
+
+Name: arebot_param_set
+Description: Description of arebot_param_set
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -4,8 +4,8 @@
 
     <arg name="map_name" default="map" />
 
-   <!--start robot and laser sensor-->
-   <include file="$(find arebot_bringup)/launch/arebot.launch"/>
+    <!--start robot and laser sensor-->
+    <include file="$(find arebot_bringup)/launch/arebot.launch"/>
     
     <!-- Map server -->
     <arg name="map_file" default="$(find arebot_navigation)/maps/$(arg map_name).yaml"/>

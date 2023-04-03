@@ -1,0 +1,5 @@
+<launch>
+	<include file="$(find arebot_bringup)/launch/arebot.launch"/>
+	<include file="$(find arebot_navigation)/launch/include/move_base.launch"/>
+	<!-- <include file="$(find atlas_cam)/launch/atlas_cam.launch"/> -->
+</launch>

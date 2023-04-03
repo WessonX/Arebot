@@ -1,0 +1,8 @@
+prefix=/home/pi/arebot_ws/install
+
+Name: cmd_vel_calib
+Description: Description of cmd_vel_calib
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

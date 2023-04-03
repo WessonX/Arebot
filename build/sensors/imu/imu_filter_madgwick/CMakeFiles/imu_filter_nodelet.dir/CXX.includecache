@@ -41,6 +41,8 @@ imu_filter_madgwick/imu_filter_ros.h
 /home/pi/arebot_ws/src/sensors/imu/imu_filter_madgwick/include/imu_filter_madgwick/imu_filter_ros.h
 ros/ros.h
 -
+std_msgs/Float64.h
+-
 sensor_msgs/Imu.h
 -
 sensor_msgs/MagneticField.h
@@ -153,7 +155,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -169,7 +171,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -195,7 +197,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -219,7 +221,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -235,7 +237,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -253,7 +255,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -269,7 +271,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -285,7 +287,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -309,7 +311,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -327,7 +329,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -345,7 +347,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -389,7 +391,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -405,7 +407,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -425,7 +427,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -445,7 +447,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -461,7 +463,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -1315,7 +1317,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -1339,7 +1341,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -1354,12 +1356,28 @@ std_msgs/Header.h
 geometry_msgs/Vector3.h
 -
 
+/opt/ros/melodic/include/std_msgs/Float64.h
+string
+-
+vector
+-
+memory
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
 /opt/ros/melodic/include/std_msgs/Header.h
 string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -

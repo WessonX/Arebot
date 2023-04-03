@@ -2,7 +2,7 @@ prefix=/home/pi/arebot_ws/install
 
 Name: robot_description
 Description: Description of robot_description
-Version: 0.0.0
+Version: 1.0.0
 Cflags: 
 Libs: -L${prefix}/lib 
 Requires: 

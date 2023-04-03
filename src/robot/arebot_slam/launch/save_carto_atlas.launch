@@ -1,0 +1,5 @@
+<launch>
+    <arg name="map_name" default="carto_map"/>
+    <node pkg="arebot_slam" type="save_carto_atlas.py" name="save_carto" output="screen"
+        args="$(arg map_name)" />
+</launch>

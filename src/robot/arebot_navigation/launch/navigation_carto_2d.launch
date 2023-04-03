@@ -1,0 +1,19 @@
+<launch>
+
+    <!-- Arguments -->
+    <arg name="map_name" default="carto_map" />
+
+    <include file="$(find arebot_navigation)/launch/include/carto_2d_localization.launch">
+        <arg name="map_name" value="$(arg map_name)" />
+    </include>
+
+    <!--start robot and laser sensor-->
+    <include file="$(find arebot_bringup)/launch/arebot.launch"/>
+    
+    <!-- Map server -->
+    <arg name="map_file" default="$(find arebot_navigation)/maps/$(arg map_name).yaml"/>
+    <node pkg="map_server" name="map_server"  type="map_server" args="$(arg map_file)" />
+
+    <!-- Takes reference from env variable LINGAO_MODEL. ie. export LINGAO_MODEL=2wd -->
+    <include file="$(find arebot_navigation)/launch/include/move_base.launch" />
+</launch>

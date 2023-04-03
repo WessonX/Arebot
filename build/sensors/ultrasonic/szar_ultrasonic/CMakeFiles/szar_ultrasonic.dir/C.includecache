@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/arebot_ws/src/sensors/ultrasonic/szar_ultrasonic/src/dynamixel_protocol.h
+
+/home/pi/arebot_ws/src/sensors/ultrasonic/szar_ultrasonic/src/dynamixel_rd.c
+dynamixel_rd.h
+/home/pi/arebot_ws/src/sensors/ultrasonic/szar_ultrasonic/src/dynamixel_rd.h
+dynamixel_protocol.h
+/home/pi/arebot_ws/src/sensors/ultrasonic/szar_ultrasonic/src/dynamixel_protocol.h
+stdio.h
+/home/pi/arebot_ws/src/sensors/ultrasonic/szar_ultrasonic/src/stdio.h
+
+/home/pi/arebot_ws/src/sensors/ultrasonic/szar_ultrasonic/src/dynamixel_rd.h
+
