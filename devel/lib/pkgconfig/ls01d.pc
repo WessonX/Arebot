@@ -1,8 +1,0 @@
-prefix=/home/pi/arebot_ws/devel
-
-Name: ls01d
-Description: Description of ls01d
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

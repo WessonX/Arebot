@@ -1,8 +1,0 @@
-prefix=/home/pi/arebot_ws/install
-
-Name: szar_ultrasonic
-Description: Description of szar_ultrasonic
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib -lszar_ultrasonic
-Requires: nodelet roscpp sensor_msgs arebot_control

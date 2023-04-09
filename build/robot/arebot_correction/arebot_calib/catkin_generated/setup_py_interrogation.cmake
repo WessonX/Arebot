@@ -1,7 +1,0 @@
-set(arebot_calib_SETUP_PY_SETUP_MODULE "distutils.core")
-set(arebot_calib_SETUP_PY_VERSION "0.0.0")
-set(arebot_calib_SETUP_PY_SCRIPTS "")
-set(arebot_calib_SETUP_PY_PACKAGES "arebot_calib")
-set(arebot_calib_SETUP_PY_PACKAGE_DIRS "src/arebot_calib")
-set(arebot_calib_SETUP_PY_MODULES "")
-set(arebot_calib_SETUP_PY_MODULE_DIRS "")

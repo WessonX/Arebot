@@ -1,8 +1,0 @@
-prefix=/home/pi/arebot_ws/install
-
-Name: arebot_calib
-Description: Description of arebot_calib
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: dynamic_reconfigure

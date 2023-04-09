@@ -1,8 +1,0 @@
-prefix=/home/pi/arebot_ws/install
-
-Name: atlas_cam
-Description: Description of atlas_cam
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

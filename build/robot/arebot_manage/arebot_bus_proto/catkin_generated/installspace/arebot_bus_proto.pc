@@ -1,8 +1,0 @@
-prefix=/home/pi/arebot_ws/install
-
-Name: arebot_bus_proto
-Description: Description of arebot_bus_proto
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib -larebot_bus_proto
-Requires: roscpp arebot_control

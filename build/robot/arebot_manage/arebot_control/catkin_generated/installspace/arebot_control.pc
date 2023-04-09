@@ -1,8 +1,0 @@
-prefix=/home/pi/arebot_ws/install
-
-Name: arebot_control
-Description: Description of arebot_control
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib -larebot_control
-Requires: nodelet roscpp std_msgs sensor_msgs message_runtime

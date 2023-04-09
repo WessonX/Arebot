@@ -1,8 +1,0 @@
-prefix=/home/pi/arebot_ws/install
-
-Name: arebot_base
-Description: Description of arebot_base
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib -larebot_base
-Requires: hardware_interface joint_state_controller nodelet roscpp arebot_bus_proto
