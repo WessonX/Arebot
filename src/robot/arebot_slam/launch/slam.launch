@@ -7,7 +7,7 @@
     <!--arg name="odom_topic" default="odom" /-->
 
     <!--start robot and laser sensor-->
-   <include file="$(find arebot_bringup)/launch/arebot.launch"/>
+   <!-- <include file="$(find arebot_bringup)/launch/arebot.launch"/> -->
    
     <!-- SLAM: Gmapping, Cartographer, Hector, Karto, Frontier_exploration, RTAB-Map -->
     <include file="$(find arebot_slam)/config/slam_$(arg slam_methods).xml" />
