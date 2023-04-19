@@ -1,7 +1,8 @@
 <launch>
-	<include file="$(find arebot_base)/launch/arebot_base.launch"/>
+	<include file="$(find arebot_base)/launch/arebot_base_correction.launch"/>
 	<include file="$(find arebot_bringup)/launch/include/lidar/ls01d.launch"/>
 	<include file="$(find szar_ultrasonic)/launch/ultrasonic_sensor.launch"/>
 	<include file="$(find arebot_service)/launch/arebot_service.launch"/>	
+	<include file="$(find command_relay)/launch/command_server.launch"/>
 <!-- <include file="$(find ls01b_v2)/launch/ls01b_v2.launch"/> -->
 </launch>
