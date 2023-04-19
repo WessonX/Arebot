@@ -1,0 +1,4 @@
+build
+devel
+src/robot/arebot_navigation/maps/*
+src/robot/command_relay/log
