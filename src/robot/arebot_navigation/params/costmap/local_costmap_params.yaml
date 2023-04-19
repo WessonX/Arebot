@@ -10,3 +10,4 @@ local_costmap:
   plugins:
     - {name: lidar_obstacle_layer,    type: "spatio_temporal_voxel_layer/SpatioTemporalVoxelLayer"}
     - {name: inflation_layer,         type: "costmap_2d::InflationLayer"}
+    - {name: virtual_layer,           type: "virtual_costmap_layer::VirtualLayer"}

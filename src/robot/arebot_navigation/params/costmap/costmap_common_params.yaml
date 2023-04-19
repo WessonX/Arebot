@@ -51,3 +51,13 @@ lidar_obstacle_layer:
     decay_acceleration: 20.0     # default 0, 1/s^2. 
     model_type: 1               # default 0, model type for frustum. 0=depth camera, 1=3d lidar like VLP16 or similar
 
+virtual_layer:
+  enabled:              true
+  zone_topics:          [/virtual_costamp_layer/zone]
+  obstacle_topics:      [/virtual_costamp_layer/obsctacles]
+  one_zone:             true 
+  forms:    
+     - [0.4, 0.0]
+     - [[0.4, 0.0]]
+     - [[-0.4, 0.0],[0.0, 0.4]]
+     - [[5, 5],[-5, 5],[-5, -5],[5, -5]]
