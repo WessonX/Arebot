@@ -1,0 +1,9 @@
+<launch>
+
+  <arg name="server_port" default="8181" />
+  <node name="command_relay" pkg="command_relay" type="command_relay"
+    output="screen" required="true" args="$(arg server_port)" />
+
+  <node name="command_server" pkg="command_relay" type="CommandServer"
+    required="true" cwd="node" />
+</launch>

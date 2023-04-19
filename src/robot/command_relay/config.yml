@@ -1,0 +1,20 @@
+port: 8181
+gin_debug: false
+
+cmd_async_config:
+    timeout: 0
+    max_timeout: 0
+    allows:
+    # - build/longCmdTest.exe
+    # - build/shortCmdTest.exe
+
+cmd_sync_config:
+    timeout: 1
+    max_timeout: 3
+    allows:
+        # - "#nothing"
+
+log_config:
+    filename: ./log/CommandServer.log
+    level: debug
+    console: false
