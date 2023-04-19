@@ -22,7 +22,7 @@ nav_msgs::Path path;
 bool startSwitch(path_plan::RecordStart::Request& req, 
             path_plan::RecordStart::Response& res) {
     if (req.start == 1) {
-        outfile.open(pathAddress, std::ios::binary | std::ios::out);
+        outfile.open(pathAddress, std::ios::binary | std::ios::out | std::ios::trunc);
         path.poses.clear();
         startFlag = true;
         ROS_INFO("开始记录路径");

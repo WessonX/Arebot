@@ -1,117 +1,188 @@
- #include <pluginlib/class_list_macros.h>
- #include <tf/transform_datatypes.h>
- #include <fstream>
- #include <boost/regex.hpp>
- #include <boost/bind.hpp>
- #include "path_planner.h"
+#include <pluginlib/class_list_macros.h>
+#include <tf/transform_datatypes.h>
+#include <fstream>
+#include <boost/regex.hpp>
+#include <boost/bind.hpp>
+#include "path_planner.h"
+#include <tf2_ros/transform_listener.h>
+#include <tf2_ros/buffer.h>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 
- //register this planner as a BaseGlobalPlanner plugin
- PLUGINLIB_EXPORT_CLASS(path_planner::GlobalPlanner, nav_core::BaseGlobalPlanner)
+// register this planner as a BaseGlobalPlanner plugin
+PLUGINLIB_EXPORT_CLASS(path_planner::GlobalPlanner, nav_core::BaseGlobalPlanner)
 
- using namespace std;
+using namespace std;
 
- //Default Constructor
- namespace path_planner {
-
- GlobalPlanner::GlobalPlanner (){
-   
- }
- 
- vector<string> split(string str, string s) {
-    boost::regex reg(s.c_str());
-    vector<std::string> vec;
-    boost::sregex_token_iterator it(str.begin(),str.end(),reg,-1);
-    boost::sregex_token_iterator end;
-    while(it!=end)
+// Default Constructor
+namespace path_planner
+{
+    double two_points_distance(const geometry_msgs::PoseStamped &point_one, const geometry_msgs::PoseStamped &point_two)
     {
-        vec.push_back(*it++);
+        Eigen::Vector2d one;
+        Eigen::Vector2d two;
+        one.x() = point_one.pose.position.x;
+        one.y() = point_one.pose.position.y;
+        two.x() = point_two.pose.position.x;
+        two.y() = point_two.pose.position.y;
+        return (one - two).norm();
     }
-    return vec;
- }
 
- GlobalPlanner::GlobalPlanner(std::string name, costmap_2d::Costmap2DROS* costmap_ros){
-   initialize(name, costmap_ros);
+    vector<string> my_split(string str, string s)
+    {
+        boost::regex reg(s.c_str());
+        vector<std::string> vec;
+        boost::sregex_token_iterator it(str.begin(), str.end(), reg, -1);
+        boost::sregex_token_iterator end;
+        while (it != end)
+        {
+            vec.push_back(*it++);
+        }
+        return vec;
+    }
 
- }
+    geometry_msgs::PoseStamped get_pose_now()
+    {
+        // 监听当前pose
+        tf2_ros::Buffer buffer;
+        tf2_ros::TransformListener listener(buffer);
+        geometry_msgs::TransformStamped transformStamped;
+        ros::Time now = ros::Time::now();
+        transformStamped = buffer.lookupTransform("map", "base_footprint", ros::Time(0), ros::Duration(1));
+        geometry_msgs::PoseStamped pose_cur;
+        pose_cur.pose.position.x = transformStamped.transform.translation.x;
+        pose_cur.pose.position.y = transformStamped.transform.translation.y;
+        pose_cur.pose.orientation.x = transformStamped.transform.rotation.x;
+        pose_cur.pose.orientation.y = transformStamped.transform.rotation.y;
+        pose_cur.pose.orientation.z = transformStamped.transform.rotation.z;
+        pose_cur.pose.orientation.w = transformStamped.transform.rotation.w;
+        ROS_INFO("the position now:(%f, %f)", pose_cur.pose.position.x, pose_cur.pose.position.y);
+        return pose_cur;
+    }
 
+    GlobalPlanner::GlobalPlanner()
+    {
+    }
 
- void GlobalPlanner::initialize(std::string name, costmap_2d::Costmap2DROS* costmap_ros){
-   ROS_WARN("initialize-------");
+    GlobalPlanner::GlobalPlanner(std::string name, costmap_2d::Costmap2DROS *costmap_ros)
+    {
+        initialize(name, costmap_ros);
+    }
 
-   try{
-      pluginlib::ClassLoader<nav_core::BaseGlobalPlanner> navfn_planner_loader("nav_core", "nav_core::BaseGlobalPlanner");
-      navfn_planner = navfn_planner_loader.createInstance("navfn/NavfnROS");
-      navfn_planner->initialize("navfn/NavfnROS", costmap_ros);
-   } catch (const pluginlib::PluginlibException& ex) {
-      ROS_FATAL("Failed to create the navfn/NavfnROS planner, are you sure it is properly registered and that the containing library is built? Exception: %s", ex.what());
-      exit(1);
-   }
+    void GlobalPlanner::initialize(std::string name, costmap_2d::Costmap2DROS *costmap_ros)
+    {
 
-   nh = ros::NodeHandle("~");
-   path_subscriber = nh.subscribe<nav_msgs::Path>("custom_path", 10, boost::bind(&GlobalPlanner::customPathCallback, this, _1));
-   use_custom_path = false;
- }
+        ROS_WARN("initialize-------");
+        // 初始化滑动窗口指针
+        plan_window_it = path_poses.cbegin();
 
- bool GlobalPlanner::makePlan(const geometry_msgs::PoseStamped& start, const geometry_msgs::PoseStamped& goal, std::vector<geometry_msgs::PoseStamped>& plan){
-   ROS_WARN("makePlan-------");
+        // 初始化navfn全局路径规划器
+        try{
+            pluginlib::ClassLoader<nav_core::BaseGlobalPlanner> navfn_planner_loader("nav_core", "nav_core::BaseGlobalPlanner");
+            navfn_planner = navfn_planner_loader.createInstance("navfn/NavfnROS");
+            navfn_planner->initialize("navfn/NavfnROS", costmap_ros);
+        } catch (const pluginlib::PluginlibException& ex) {
+            ROS_FATAL("Failed to create the navfn/NavfnROS planner, are you sure it is properly registered and that the containing library is built? Exception: %s", ex.what());
+            exit(1);
+        }
 
-   if (!use_custom_path) {
-      navfn_planner->makePlan(start, goal, plan);
-      return true;
-   }
+        // 订阅自定义路径话题
+        nh = ros::NodeHandle("~");
+        path_subscriber = nh.subscribe<nav_msgs::Path>("custom_path", 10, boost::bind(&GlobalPlanner::customPathCallback, this, _1));
+        use_custom_path = false;
+    }
+    // 滑动窗口路径思路：在同一次规划内（发出一次导航目标后，再发出一次导航目标前），按频率根据小车当前位置发布一段向前固定距离的部分路径。
+    bool GlobalPlanner::makePlan(const geometry_msgs::PoseStamped &start, const geometry_msgs::PoseStamped &goal, std::vector<geometry_msgs::PoseStamped> &plan)
+    {
+        ros::NodeHandle n;
+        ROS_WARN("makePlan-------");
 
-   use_custom_path = false;
+        // 判断是否使用自定义路径
+        if (!use_custom_path) {
+            navfn_planner->makePlan(start, goal, plan);
+            return true;
+        }
 
-   // ros::NodeHandle nh;
-   // string pathAddress;
-   // nh.getParam("move_base/path", pathAddress);
+        use_custom_path = false;
 
-   // //读取路径文件
-   // ifstream infile;
-   // infile.open(pathAddress, ios::in | ios::binary);
-   // if(!infile) {
-   //    ROS_WARN("Failed to open file!");
-   //    return false;
-   // }
-   // string s;
-   // vector<string> data;
-   // while(getline(infile, s)) {
-   //    data.push_back(s.c_str());
-   // }
+        // 判断是否为同一次规划
+        if (goal.header.stamp == is_the_same_plan.header.stamp)
+        {
+            ROS_WARN("THE SAME PLAN!");
+        }
+        else
+        {
+            // 读取路径文件
+            // ros::NodeHandle n;
+            // string pathAddress;
+            // n.getParam("move_base/path", pathAddress);
+            double start_time = ros::Time::now().toSec();
+            load_data(path_poses);
+            double end_time = ros::Time::now().toSec();
+            ROS_INFO("%f s for load", end_time - start_time);
 
-   plan.push_back(start);
-   //将路径点导入plan
-   for(int i = 0; i < custom_path.poses.size(); i++) {
-      geometry_msgs::PoseStamped pos = custom_path.poses[i];
-      pos.header.frame_id = start.header.frame_id;
+            is_the_same_plan.header.stamp = goal.header.stamp;
+            plan_window_it = path_poses.cbegin();
+            ROS_WARN("NOT THE SAME PLAN! AND THE NEW PATH IS BEING REPLANNED!");
+        }
 
-      // double x = atof(split(data[i], " ")[0].c_str());
-      // double y = atof(split(data[i], " ")[1].c_str());
-      // double ox = atof(split(data[i], " ")[2].c_str());
-      // double oy = atof(split(data[i], " ")[3].c_str());
-      // double oz = atof(split(data[i], " ")[4].c_str());
-      // double ow = atof(split(data[i], " ")[5].c_str());
-      // // ROS_INFO("x:%f, y:%f", x, y);
+        geometry_msgs::PoseStamped pose_cur = get_pose_now();
+        // 确定距离当前pose第一个最近的路径点作为发布路径的起始点（起始点一路向前滑才能解决在交叉点无法判断前进路径的问题）
+        double nearest_dist = two_points_distance(pose_cur, *plan_window_it);
+        for (auto it = plan_window_it + 1; it != path_poses.cend(); it++)
+        {
+            double last_dist = two_points_distance(*it, pose_cur);
+            if (last_dist < nearest_dist)
+            {
+                nearest_dist = last_dist;
+                plan_window_it = it;
+            }
+            else
+            {
+                // 找到第一个最近的路径点就可以不往下找了，防止找到接下来可能存在的交叉点
+                break;
+            }
+        }
+        ROS_INFO("THE NEAREST PATH POSE:(%f, %f)", plan_window_it->pose.position.x, plan_window_it->pose.position.y);
 
-      // pos.pose.position.x = x;
-      // pos.pose.position.y = y;
-      // pos.pose.position.z = 0;
-      // pos.pose.orientation.x = ox;
-      // pos.pose.orientation.y = oy;
-      // pos.pose.orientation.z = oz;
-      // pos.pose.orientation.w = ow;
+        // 发布一段path_window_size长的全局路径(m)
+        double path_window_size;
+        n.getParam("move_base/path_window_size", path_window_size);
+        double length_sum = 0;
+        auto tmp_it = plan_window_it;
+        while (length_sum < path_window_size && tmp_it != path_poses.cend())
+        {
+            length_sum += two_points_distance(*tmp_it, *(tmp_it + 1));
+            plan.push_back(*tmp_it);
+            tmp_it++;
+        }
 
-      plan.push_back(pos);
-   }
+        //    //将路径点导入plan（一次性全部导入）
+        //     for(std::size_t i = 0; i < path_poses.size(); i++) {
+        //         plan.push_back(path_poses[i]);
+        //     }
 
-   // infile.close();
-   return true;
- }
+        return true;
+    }
 
- void GlobalPlanner::customPathCallback(const nav_msgs::Path::ConstPtr & custom_path_msg) {
-   use_custom_path = true;
-   custom_path.header.frame_id = custom_path_msg->header.frame_id;
-   custom_path.poses = custom_path_msg->poses;
-   ROS_INFO("received a custom path");
- }
- };
+    void GlobalPlanner::load_data(vector<geometry_msgs::PoseStamped> &vc)
+    {
+        ROS_WARN("loading data-------");
+        // 清空路径
+        vc.clear();
+
+        for (auto p : custom_path.poses) {
+            geometry_msgs::PoseStamped pos;
+            pos.header.frame_id = p.header.frame_id;
+            pos.pose = p.pose;
+            vc.push_back(pos);
+        }
+        ROS_WARN("Loaded successfully!");
+    }
+
+    void GlobalPlanner::customPathCallback(const nav_msgs::Path::ConstPtr & custom_path_msg) {
+        use_custom_path = true;
+        custom_path.header.frame_id = custom_path_msg->header.frame_id;
+        custom_path.poses = custom_path_msg->poses;
+        ROS_INFO("received a custom path");
+    }
+};

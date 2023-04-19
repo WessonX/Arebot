@@ -4,15 +4,15 @@
     <gazebo reference="laser">
       <sensor type="ray" name="rplidar">
         <pose>0 0 0 0 0 0</pose>
-        <visualize>false</visualize>
+        <visualize>true</visualize>
         <update_rate>5.5</update_rate>
         <ray>
           <scan>
             <horizontal>
               <samples>360</samples>
-              <resolution>3</resolution>
-              <min_angle>-3</min_angle>
-              <max_angle>1</max_angle>
+              <resolution>1</resolution>
+              <min_angle>3</min_angle>
+              <max_angle>-3</max_angle>
             </horizontal>
           </scan>
           <range>
