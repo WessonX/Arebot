@@ -41,8 +41,7 @@
     </node>
 
     <!-- IMU Relay and Filter -->
-    <param name="angular_scale" value="1.0" />
-    <param name="linear_scale" value="1.0" />
+    <rosparam file="$(find arebot_base)/params/calib.yaml"/>
 
     <node pkg="cmd_vel_calib" type="cmd_vel_calib_node" name="cmd_vel_calib" output="screen" />
 
