@@ -2,7 +2,7 @@ float32 distance
 float32 angle
 
 ---
-bool final_progress
+float32 final_progress
 
 ---
 float32 progress
