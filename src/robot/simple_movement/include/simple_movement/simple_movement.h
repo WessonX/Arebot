@@ -55,6 +55,7 @@ public:
     void move(float distance);
     void rotate(float angle);
 
+    float getRotation();
 };
 
 }
