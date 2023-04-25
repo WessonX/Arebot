@@ -1,0 +1,4 @@
+<launch>
+  <node name="arebot_patrolling" pkg="arebot_patrolling" type="arebot_patrolling_node"
+    output="screen" required="true" />
+</launch>

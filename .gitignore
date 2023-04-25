@@ -1,4 +1,7 @@
 build
 devel
+.vscode
 src/robot/arebot_navigation/maps/*
 src/robot/command_relay/log
+src/robot/arebot_patrolling/patrolling_task/images
+src/robot/arebot_patrolling/arebot_patrolling/patrolling.config
