@@ -46,8 +46,11 @@ int main(int argc, char **argv) {
 		config >> x >> y >> z >> w;
 		goal.target_pose.pose.position.x = x;
 		goal.target_pose.pose.position.y = y;
-		goal.target_pose.pose.orientation.z = 0.01;
-		goal.target_pose.pose.orientation.w = 0.01;
+		goal.target_pose.pose.position.z = 0;
+		goal.target_pose.pose.orientation.x = 0;
+		goal.target_pose.pose.orientation.y = 0;
+		goal.target_pose.pose.orientation.z = z;
+		goal.target_pose.pose.orientation.w = w;
 		// goal.target_pose.pose.position.x = int(x * 100) / 100.0f;
 		// goal.target_pose.pose.position.y = int(y * 100) / 100.0f;
 		// goal.target_pose.pose.orientation.z = int(z * 100) / 100.0f;
@@ -87,9 +90,7 @@ int main(int argc, char **argv) {
 						&action_done_cb,
 						&action_active_cb,
 						&action_feedback_cb);
-			ROS_ERROR("before wait result");
 			ma.waitForResult();
-			ROS_ERROR("after wait result");
 
 			// do task
 			command_relay::Cmd pre_cancel;
@@ -103,7 +104,6 @@ int main(int argc, char **argv) {
 									 "\"tag\":\"patrolling_task\","
 									 "\"command\":\"";
 			task.request.json_data += listCmd[i] + "\"}";
-			ROS_INFO(task.request.json_data.c_str());
 			cmdSrv.call(task);
 
 			// wait
