@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(arebot_patrolling)
+project(arebot_correction_wheel)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -8,13 +8,12 @@ project(arebot_patrolling)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  std_srvs
-  move_base_msgs
-  actionlib
+  message_generation
   roscpp
-  roslib
-  command_relay
+  std_msgs
+  nav_msgs
 )
+find_package(Eigen3 REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -52,8 +51,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate messages in the 'msg' folder
 # add_message_files(
 #   FILES
-#   Message1.msg
-#   Message2.msg
+#   SendOneMsg.msg
 # )
 
 ## Generate services in the 'srv' folder
@@ -73,7 +71,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   geometry_msgs
+#   std_msgs
 # )
 
 ################################################
@@ -107,8 +105,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES arebot_patrolling
-#  CATKIN_DEPENDS geometry_msgs roscpp
+#  LIBRARIES arebot_correction2
+ CATKIN_DEPENDS message_generation roscpp std_msgs message_runtime
 #  DEPENDS system_lib
 )
 
@@ -121,11 +119,12 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
+  ${EIGEN3_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/arebot_patrolling.cpp
+#   src/${PROJECT_NAME}/arebot_correction2.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -136,9 +135,11 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(${PROJECT_NAME}_node src/arebot_patrolling_node.cpp)
-add_executable(${PROJECT_NAME}_probelast src/arebot_patrolling_probelast.cpp)
-add_executable(${PROJECT_NAME}_save_config src/arebot_patrolling_save_config.cpp)
+add_executable(multiplier_reset src/multiplier_reset.cpp)
+add_executable(pub_actual_angular src/pub_actual_angular.cpp)
+add_executable(multiplier_separation src/multiplier_separation.cpp)
+add_executable(multiplier_radius src/multiplier_radius.cpp)
+add_executable(pub_dist_for_test src/pub_dist_for_test.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -148,18 +149,22 @@ add_executable(${PROJECT_NAME}_save_config src/arebot_patrolling_save_config.cpp
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(${PROJECT_NAME}_node
+target_link_libraries(multiplier_reset
   ${catkin_LIBRARIES}
 )
-
-target_link_libraries(${PROJECT_NAME}_probelast
+target_link_libraries(pub_actual_angular
   ${catkin_LIBRARIES}
 )
-
-target_link_libraries(${PROJECT_NAME}_save_config
+target_link_libraries(multiplier_separation
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(multiplier_radius
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(pub_dist_for_test
   ${catkin_LIBRARIES}
 )
 
@@ -210,7 +215,7 @@ target_link_libraries(${PROJECT_NAME}_save_config
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_arebot_patrolling.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_arebot_correction2.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

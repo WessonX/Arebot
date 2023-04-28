@@ -10,7 +10,7 @@ cmd_async_config:
 
 cmd_sync_config:
     timeout: 1
-    max_timeout: 3
+    max_timeout: 5
     allows:
         # - "#nothing"
 

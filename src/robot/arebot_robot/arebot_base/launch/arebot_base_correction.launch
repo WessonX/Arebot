@@ -15,6 +15,7 @@
     </node>
 
     <rosparam command="load" file="$(find arebot_base)/params/controller_manager.yaml"/>
+    <rosparam command="load" file="$(find arebot_base)/params/calib_wheel.yaml"/>
     <node name="controller_spawner"
           pkg="controller_manager"
           type="spawner"

@@ -1,0 +1,4 @@
+mobile_base_controller:
+  wheel_radius_multiplier: 1
+  wheel_separation_multiplier: 1
+  temp_multiplier: 1

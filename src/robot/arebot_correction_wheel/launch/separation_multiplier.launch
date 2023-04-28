@@ -1,0 +1,9 @@
+<launch>
+    <node pkg="arebot_correction_wheel" type="multiplier_separation" name="multiplier_separation" output="screen">
+        <param name="path" value="$(find arebot_base)/params/calib_wheel.yaml"/>
+    </node>
+    <node pkg="arebot_correction_wheel" type="pub_actual_angular" name="pub_actual_angular" output="screen">
+        <param name="times" value = "30"/>
+    </node>
+
+</launch>
