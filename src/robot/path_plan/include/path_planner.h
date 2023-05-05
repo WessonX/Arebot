@@ -8,12 +8,8 @@
 #include <angles/angles.h>
 #include <base_local_planner/world_model.h>
 #include <base_local_planner/costmap_model.h>
-#include <tf2_ros/transform_listener.h>
-#include <tf2_ros/buffer.h>
-#include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 #include <pluginlib/class_loader.h>
 #include "nav_msgs/Path.h"
-#include "nav_msgs/Odometry.h"
 #include <Eigen/Dense>
 #include <vector>
 
@@ -31,14 +27,10 @@ namespace path_planner
     class GlobalPlanner : public nav_core::BaseGlobalPlanner
     {
     public:
+
         ros::NodeHandle nh;
         ros::Subscriber path_subscriber;
-        ros::Subscriber odom_subscriber;
 
-        // 位置信息
-        geometry_msgs::PoseStamped pose;
-
-        // 订阅路径
         boost::shared_ptr<nav_core::BaseGlobalPlanner> navfn_planner;
         nav_msgs::Path custom_path;
         bool use_custom_path;
@@ -60,10 +52,8 @@ namespace path_planner
                       const geometry_msgs::PoseStamped &goal,
                       std::vector<geometry_msgs::PoseStamped> &plan);
 
-        geometry_msgs::PoseStamped get_pose_now();
         void load_data(std::vector<geometry_msgs::PoseStamped>& vc);
         void customPathCallback(const nav_msgs::Path::ConstPtr &custom_path_msg);
-        void odomCallback(const nav_msgs::Odometry::ConstPtr &odom_msg);
     };
 };
 #endif

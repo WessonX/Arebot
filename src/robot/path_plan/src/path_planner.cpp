@@ -4,6 +4,9 @@
 #include <boost/regex.hpp>
 #include <boost/bind.hpp>
 #include "path_planner.h"
+#include <tf2_ros/transform_listener.h>
+#include <tf2_ros/buffer.h>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 
 // register this planner as a BaseGlobalPlanner plugin
 PLUGINLIB_EXPORT_CLASS(path_planner::GlobalPlanner, nav_core::BaseGlobalPlanner)
@@ -37,6 +40,25 @@ namespace path_planner
         return vec;
     }
 
+    geometry_msgs::PoseStamped get_pose_now()
+    {
+        // 监听当前pose
+        tf2_ros::Buffer buffer;
+        tf2_ros::TransformListener listener(buffer);
+        geometry_msgs::TransformStamped transformStamped;
+        ros::Time now = ros::Time::now();
+        transformStamped = buffer.lookupTransform("map", "base_footprint", ros::Time(0), ros::Duration(1));
+        geometry_msgs::PoseStamped pose_cur;
+        pose_cur.pose.position.x = transformStamped.transform.translation.x;
+        pose_cur.pose.position.y = transformStamped.transform.translation.y;
+        pose_cur.pose.orientation.x = transformStamped.transform.rotation.x;
+        pose_cur.pose.orientation.y = transformStamped.transform.rotation.y;
+        pose_cur.pose.orientation.z = transformStamped.transform.rotation.z;
+        pose_cur.pose.orientation.w = transformStamped.transform.rotation.w;
+        ROS_INFO("the position now:(%f, %f)", pose_cur.pose.position.x, pose_cur.pose.position.y);
+        return pose_cur;
+    }
+
     GlobalPlanner::GlobalPlanner()
     {
     }
@@ -67,9 +89,6 @@ namespace path_planner
         nh = ros::NodeHandle("~");
         path_subscriber = nh.subscribe<nav_msgs::Path>("custom_path", 10, boost::bind(&GlobalPlanner::customPathCallback, this, _1));
         use_custom_path = false;
-
-        // 订阅里程计话题
-        odom_subscriber = nh.subscribe<nav_msgs::Odometry>("/mobile_base_controller/odom", 10, boost::bind(&GlobalPlanner::odomCallback, this, _1));
     }
     // 滑动窗口路径思路：在同一次规划内（发出一次导航目标后，再发出一次导航目标前），按频率根据小车当前位置发布一段向前固定距离的部分路径。
     bool GlobalPlanner::makePlan(const geometry_msgs::PoseStamped &start, const geometry_msgs::PoseStamped &goal, std::vector<geometry_msgs::PoseStamped> &plan)
@@ -79,14 +98,11 @@ namespace path_planner
 
         // 判断是否使用自定义路径
         if (!use_custom_path) {
-            ROS_WARN("using navfn_planner");
             navfn_planner->makePlan(start, goal, plan);
             return true;
         }
 
         use_custom_path = false;
-
-        ROS_WARN("using path_planner");
 
         // 判断是否为同一次规划
         if (goal.header.stamp == is_the_same_plan.header.stamp)
@@ -148,25 +164,6 @@ namespace path_planner
         return true;
     }
 
-    geometry_msgs::PoseStamped GlobalPlanner::get_pose_now()
-    {
-        // 监听当前pose
-        // tf2_ros::Buffer buffer;
-        // tf2_ros::TransformListener listener(buffer);
-        // geometry_msgs::TransformStamped transformStamped;
-        // transformStamped = buffer.lookupTransform("map", "base_footprint", ros::Time(0), ros::Duration(1));
-        // geometry_msgs::PoseStamped pose_cur;
-        // pose_cur.pose.position.x = transformStamped.transform.translation.x;
-        // pose_cur.pose.position.y = transformStamped.transform.translation.y;
-        // pose_cur.pose.orientation.x = transformStamped.transform.rotation.x;
-        // pose_cur.pose.orientation.y = transformStamped.transform.rotation.y;
-        // pose_cur.pose.orientation.z = transformStamped.transform.rotation.z;
-        // pose_cur.pose.orientation.w = transformStamped.transform.rotation.w;
-        geometry_msgs::PoseStamped pose_cur = pose;
-        ROS_INFO("the position now:(%f, %f)", pose_cur.pose.position.x, pose_cur.pose.position.y);
-        return pose_cur;
-    }
-
     void GlobalPlanner::load_data(vector<geometry_msgs::PoseStamped> &vc)
     {
         ROS_WARN("loading data-------");
@@ -182,15 +179,10 @@ namespace path_planner
         ROS_WARN("Loaded successfully!");
     }
 
-    void GlobalPlanner::customPathCallback(const nav_msgs::Path::ConstPtr &custom_path_msg)
-    {
+    void GlobalPlanner::customPathCallback(const nav_msgs::Path::ConstPtr & custom_path_msg) {
         use_custom_path = true;
         custom_path.header.frame_id = custom_path_msg->header.frame_id;
         custom_path.poses = custom_path_msg->poses;
         ROS_INFO("received a custom path");
-    }
-
-    void GlobalPlanner::odomCallback(const nav_msgs::Odometry::ConstPtr &odom_msg) {
-        pose.pose = odom_msg->pose.pose;
     }
 };
