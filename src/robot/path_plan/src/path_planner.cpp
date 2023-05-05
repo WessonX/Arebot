@@ -47,7 +47,7 @@ namespace path_planner
         tf2_ros::TransformListener listener(buffer);
         geometry_msgs::TransformStamped transformStamped;
         ros::Time now = ros::Time::now();
-        transformStamped = buffer.lookupTransform("map", "base_footprint", ros::Time(0), ros::Duration(1));
+        transformStamped = buffer.lookupTransform("map", "base_footprint", ros::Time(0), ros::Duration(2));
         geometry_msgs::PoseStamped pose_cur;
         pose_cur.pose.position.x = transformStamped.transform.translation.x;
         pose_cur.pose.position.y = transformStamped.transform.translation.y;
@@ -172,7 +172,7 @@ namespace path_planner
 
         for (auto p : custom_path.poses) {
             geometry_msgs::PoseStamped pos;
-            pos.header.frame_id = p.header.frame_id;
+            pos.header.frame_id = "map";
             pos.pose = p.pose;
             vc.push_back(pos);
         }
