@@ -4,5 +4,6 @@
 	<include file="$(find szar_ultrasonic)/launch/ultrasonic_sensor.launch"/>
 	<include file="$(find arebot_service)/launch/arebot_service.launch"/>	
 	<include file="$(find command_relay)/launch/command_server.launch"/>
+	<include file="$(find simple_task)/launch/simple_task.launch"/>
 <!-- <include file="$(find ls01b_v2)/launch/ls01b_v2.launch"/> -->
 </launch>
