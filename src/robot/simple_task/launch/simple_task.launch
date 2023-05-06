@@ -1,5 +1,5 @@
 <launch>
-    <node pkg="simple_movement" type="simple_movement_node" name="simple_movement_node" output="screen">
+    <node pkg="simple_task" type="simple_task_node" name="simple_task_node" output="screen">
         <param name="odom_topic" value="/mobile_base_controller/odom" />
         <param name="cmd_vel_topic" value="/cmd_vel" />
         <param name="linear_speed" value="0.2" />       <!-- m/s -->

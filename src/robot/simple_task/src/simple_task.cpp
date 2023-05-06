@@ -1,31 +1,25 @@
-#include "simple_movement/simple_movement.h"
+#include "simple_task/simple_task.h"
 #include "geometry_msgs/Twist.h"
 #include "tf2_geometry_msgs/tf2_geometry_msgs.h"
 #include "tf2/LinearMath/Matrix3x3.h"
 #include <cmath>
 
-namespace simple_movement {
+namespace simple_task {
 
-void SimpleMovement::executeCallback(const SimpleMovementGoalConstPtr &goal) {
+void SimpleTask::executeCallback(const SimpleTaskGoalConstPtr &goal) {
     ROS_INFO("goal received");
 
-    if (goal->distance != 0.0 && goal->angle != 0.0) {
-        ROS_ERROR("Cannot move and rotate at the same time!");
-        result.final_progress = 0.0;
-        action_server.setAborted(result);
-    }
-    else if (goal->distance == 0.0 && goal->angle == 0.0) {
-        ROS_WARN("Invalid arguments: both angle and distance are zero");
-        result.final_progress = 0.0;
-        action_server.setAborted(result);
-    }
+    std::string task_name = goal->task_name;
+    if (task_name == "move") move(goal->args);
+    else if (task_name == "rotate") rotate(goal->args);
     else {
-        if (goal->distance != 0) move(goal->distance);
-        else rotate(goal->angle);
+        ROS_ERROR("Invalid task name: %s", task_name.c_str());
+        result.final_progress = 0.0;
+        action_server.setAborted(result);
     }
 }
 
-void SimpleMovement::start() {
+void SimpleTask::start() {
     // 初始化控制参数
     if (!nh.getParam("odom_topic", odom_topic))
         odom_topic = "/mobile_base_controller/odom";
@@ -40,19 +34,27 @@ void SimpleMovement::start() {
     if (!nh.getParam("angular_error", angular_error))
         angular_error = 5;
 
+    // 暂时先把任务列表写死，以后可以改用更灵活的方式
+    task_list.insert("move");
+    task_list.insert("rotate");
+
     // 初始化odom_sub, twist_pub
-    odom_sub = nh.subscribe<nav_msgs::Odometry>(odom_topic, 10, boost::bind(&SimpleMovement::odomSubscribeCallback, this, _1));
+    odom_sub = nh.subscribe<nav_msgs::Odometry>(odom_topic, 10, boost::bind(&SimpleTask::odomSubscribeCallback, this, _1));
     twist_pub = nh.advertise<geometry_msgs::Twist>(cmd_vel_topic, 10);
+
+    // 初始化task_list_server
+    task_list_server = nh.advertiseService<simple_task::TaskList::Request, simple_task::TaskList::Response>
+                                           ("get_task_list", boost::bind(&SimpleTask::taskListCallback, this, _1, _2));
 
     // 启动action服务器
     action_server.start();
 }
 
-void SimpleMovement::odomSubscribeCallback(const nav_msgs::Odometry::ConstPtr &odom) {
+void SimpleTask::odomSubscribeCallback(const nav_msgs::Odometry::ConstPtr &odom) {
     pose = odom->pose.pose;
 }
 
-void SimpleMovement::move(float distance) {
+void SimpleTask::move(float distance) {
     ros::Rate rate(20);
     bool success = true;
     float dir = distance > 0 ? 1 : -1;
@@ -98,7 +100,7 @@ void SimpleMovement::move(float distance) {
     }
 }
 
-void SimpleMovement::rotate(float angle) {
+void SimpleTask::rotate(float angle) {
     if (angle < -360.0 || angle > 360.0) {
         ROS_ERROR("The rotation angle is limited to between -360.0 and 360.0");
         result.final_progress = 0.0;
@@ -148,12 +150,21 @@ void SimpleMovement::rotate(float angle) {
     }
 }
 
-float SimpleMovement::getRotation() {
+float SimpleTask::getRotation() {
     double roll, pitch, yaw;
     tf2::Quaternion q;
     tf2::fromMsg(pose.orientation, q);
     tf2::Matrix3x3(q).getRPY(roll, pitch, yaw);
     return yaw * 180.0 / 3.1415;
+}
+
+bool SimpleTask::taskListCallback(simple_task::TaskList::Request &req, simple_task::TaskList::Response &resp) {
+    ROS_INFO("received request, sending task list");
+    for (auto task : task_list) {
+        resp.tasks.push_back(task);
+    }
+
+    return true;
 }
 
 }

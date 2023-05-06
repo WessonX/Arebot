@@ -1,8 +1,0 @@
-float32 distance
-float32 angle
-
----
-float32 final_progress
-
----
-float32 progress
