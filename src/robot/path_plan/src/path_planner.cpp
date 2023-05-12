@@ -71,16 +71,19 @@ namespace path_planner
     void GlobalPlanner::initialize(std::string name, costmap_2d::Costmap2DROS *costmap_ros)
     {
 
-        ROS_WARN("initialize-------");
+        ROS_INFO("initialize-------");
         // 初始化滑动窗口指针
         plan_window_it = path_poses.cbegin();
 
         // 初始化navfn全局路径规划器
-        try{
+        try
+        {
             pluginlib::ClassLoader<nav_core::BaseGlobalPlanner> navfn_planner_loader("nav_core", "nav_core::BaseGlobalPlanner");
             navfn_planner = navfn_planner_loader.createInstance("navfn/NavfnROS");
             navfn_planner->initialize("navfn/NavfnROS", costmap_ros);
-        } catch (const pluginlib::PluginlibException& ex) {
+        } 
+        catch (const pluginlib::PluginlibException& ex) 
+        {
             ROS_FATAL("Failed to create the navfn/NavfnROS planner, are you sure it is properly registered and that the containing library is built? Exception: %s", ex.what());
             exit(1);
         }
@@ -89,20 +92,23 @@ namespace path_planner
         nh = ros::NodeHandle("~");
         path_subscriber = nh.subscribe<nav_msgs::Path>("custom_path", 10, boost::bind(&GlobalPlanner::customPathCallback, this, _1));
         use_custom_path = false;
+
+        // 订阅goal和result话题
+        goal_subscriber = nh.subscribe<move_base_msgs::MoveBaseActionGoal>("goal", 10, boost::bind(&GlobalPlanner::goalCallback, this, _1));
+        result_subscriber = nh.subscribe<move_base_msgs::MoveBaseActionResult>("result", 10, boost::bind(&GlobalPlanner::resultCallback, this, _1));
     }
     // 滑动窗口路径思路：在同一次规划内（发出一次导航目标后，再发出一次导航目标前），按频率根据小车当前位置发布一段向前固定距离的部分路径。
     bool GlobalPlanner::makePlan(const geometry_msgs::PoseStamped &start, const geometry_msgs::PoseStamped &goal, std::vector<geometry_msgs::PoseStamped> &plan)
     {
         ros::NodeHandle n;
-        ROS_WARN("makePlan-------");
+        ROS_INFO("makePlan-------");
 
         // 判断是否使用自定义路径
-        if (!use_custom_path) {
+        if (!use_custom_path)
+        {
             navfn_planner->makePlan(start, goal, plan);
             return true;
         }
-
-        use_custom_path = false;
 
         // 判断是否为同一次规划
         if (goal.header.stamp == is_the_same_plan.header.stamp)
@@ -166,23 +172,62 @@ namespace path_planner
 
     void GlobalPlanner::load_data(vector<geometry_msgs::PoseStamped> &vc)
     {
-        ROS_WARN("loading data-------");
+        ROS_INFO("loading data-------");
         // 清空路径
         vc.clear();
 
-        for (auto p : custom_path.poses) {
+        for (auto p : custom_path.poses) 
+        {
+            // 处理frame_id，删除开头的'/'
+            string frame_id = p.header.frame_id;
+            if (frame_id[0] == '/') frame_id = frame_id.substr(1, frame_id.size());
+
+            // 构造pose
             geometry_msgs::PoseStamped pos;
-            pos.header.frame_id = "map";
+            pos.header.frame_id = frame_id;
             pos.pose = p.pose;
             vc.push_back(pos);
         }
-        ROS_WARN("Loaded successfully!");
+        ROS_INFO("Loaded successfully!");
     }
 
-    void GlobalPlanner::customPathCallback(const nav_msgs::Path::ConstPtr & custom_path_msg) {
+    void GlobalPlanner::customPathCallback(const nav_msgs::Path::ConstPtr &custom_path_msg)
+    {
         use_custom_path = true;
         custom_path.header.frame_id = custom_path_msg->header.frame_id;
         custom_path.poses = custom_path_msg->poses;
         ROS_INFO("received a custom path");
+    }
+
+    void GlobalPlanner::goalCallback(const move_base_msgs::MoveBaseActionGoal::ConstPtr &goal_msg)
+    {
+        string id = goal_msg->goal_id.id;
+        if (current_goals.find(id) != current_goals.end()) 
+        {
+            ROS_WARN("goal already exists");
+            return;
+        }
+        else
+        {
+            current_goals.insert(id);
+            ROS_INFO("goal received, recording goal_id");
+        }
+    }
+
+    void GlobalPlanner::resultCallback(const move_base_msgs::MoveBaseActionResult::ConstPtr &result_msg)
+    {
+        string id = result_msg->status.goal_id.id;
+
+        auto iter = current_goals.find(id);
+        if (iter == current_goals.end()) {
+            ROS_WARN("goal does not exists");
+            return;
+        }
+        else 
+        {
+            current_goals.erase(iter);
+            use_custom_path = false;
+            ROS_INFO("received result of goal: %s", id.c_str());
+        }
     }
 };

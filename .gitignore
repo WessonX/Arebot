@@ -5,3 +5,4 @@ src/robot/arebot_navigation/maps/*
 src/robot/command_relay/log
 src/robot/arebot_patrolling/patrolling_task/images
 src/robot/arebot_patrolling/arebot_patrolling/patrolling.config
+src/robot/path_plan/*.mp4

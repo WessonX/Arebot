@@ -10,8 +10,11 @@
 #include <base_local_planner/costmap_model.h>
 #include <pluginlib/class_loader.h>
 #include "nav_msgs/Path.h"
+#include "move_base_msgs/MoveBaseActionGoal.h"
+#include "move_base_msgs/MoveBaseActionResult.h"
 #include <Eigen/Dense>
 #include <vector>
+#include <unordered_set>
 
 using std::string;
 
@@ -30,10 +33,16 @@ namespace path_planner
 
         ros::NodeHandle nh;
         ros::Subscriber path_subscriber;
+        ros::Subscriber goal_subscriber;
+        ros::Subscriber result_subscriber;
 
+        // 导航点模式使用navfn全局路径规划
         boost::shared_ptr<nav_core::BaseGlobalPlanner> navfn_planner;
+
+        // 路径记录
         nav_msgs::Path custom_path;
         bool use_custom_path;
+        std::unordered_set<std::string> current_goals;
 
         // 判断是否为同一次规划（在同一次规划内作滑动窗口处理）
         geometry_msgs::PoseStamped is_the_same_plan;
@@ -54,6 +63,8 @@ namespace path_planner
 
         void load_data(std::vector<geometry_msgs::PoseStamped>& vc);
         void customPathCallback(const nav_msgs::Path::ConstPtr &custom_path_msg);
+        void goalCallback(const move_base_msgs::MoveBaseActionGoal::ConstPtr &goal_msg);
+        void resultCallback(const move_base_msgs::MoveBaseActionResult::ConstPtr &result_msg);
     };
 };
 #endif
