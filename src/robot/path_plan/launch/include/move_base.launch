@@ -2,7 +2,7 @@
 
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" clear_params="true">
         <param name = "path" value = "$(find path_plan)/path.txt"/>
-        <param name = "path_window_size" value = "1.5"/>
+        <param name = "path_window_size" value = "300"/>
         <param name = "planner_frequency" value = "1.0"/>
         <param name="base_global_planner" value="path_planner/GlobalPlanner"/>
         <!-- <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/> -->
