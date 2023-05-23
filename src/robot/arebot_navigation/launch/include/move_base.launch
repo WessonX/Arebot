@@ -5,11 +5,14 @@
     <param name = "path_window_size" value = "2.5"/>
     <param name = "planner_frequency" value = "2.0"/>
     <rosparam file="$(find arebot_navigation)/params/costmap/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
+    <rosparam file="$(find arebot_navigation)/params/costmap/costmap_common_params_optimizing.yaml" command="load" ns="global_costmap" /> 
     <rosparam file="$(find arebot_navigation)/params/costmap/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find arebot_navigation)/params/costmap/costmap_common_params_optimizing.yaml" command="load" ns="local_costmap" />
     <rosparam file="$(find arebot_navigation)/params/costmap/local_costmap_params.yaml" command="load" />
     <rosparam file="$(find arebot_navigation)/params/costmap/global_costmap_params.yaml" command="load" /> 
     <!--rosparam file="$(find bot_2dnav_bringup)/params/navigation/planner/base_local_planner_params.yaml" command="load" /-->
     <rosparam file="$(find arebot_navigation)/params/planner/teb_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find arebot_navigation)/params/planner/teb_local_planner_params_optimizing.yaml" command="load" />
     <rosparam file="$(find arebot_navigation)/params/planner/costmap_converter_params.yaml" command="load" />
   </node>
 </launch>

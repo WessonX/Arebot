@@ -40,14 +40,15 @@ TebLocalPlannerROS:
 
   # GoalTolerance
 
-  xy_goal_tolerance: 0.2
-  yaw_goal_tolerance: 0.1
+  # xy_goal_tolerance: 0.2  # see teb_local_planner_params_optimizing.yaml
+  # yaw_goal_tolerance: 0.1
   free_goal_vel: False
   complete_global_plan: True
 
   # Obstacles
 
-  min_obstacle_dist: 0.45 # This value must also include our robot radius, since footprint_model is set to "point".
+  # see teb_local_planner_params_optimizing.yaml
+  # min_obstacle_dist: 0.45 # This value must also include our robot radius, since footprint_model is set to "point".
   inflation_dist: 0.6
   include_costmap_obstacles: True
   costmap_obstacles_behind_robot_dist: 1.5
