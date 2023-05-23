@@ -4,13 +4,6 @@
 
 const int PARAMS_NUM = 5;
 double params[PARAMS_NUM] = {0};
-const std::string paramsName[PARAMS_NUM] = {
-	"/move_base/TebLocalPlannerROS/xy_goal_tolerance",
-	"/move_base/TebLocalPlannerROS/xy_goal_tolerance",
-	"/move_base/TebLocalPlannerROS/min_obstacle_dist",
-	"/move_base/global_costmap/inflation_layer/inflation_radius",
-	"/move_base/local_costmap/inflation_layer/inflation_radius",
-};
 
 int main(int argc, char **argv) {
 	ros::init(argc, argv, "arebot_navi_save_node");
@@ -18,8 +11,14 @@ int main(int argc, char **argv) {
 
 	for (int i = 0; i + 1 < argc && i < PARAMS_NUM; ++i) {
 		params[i] = atof(argv[i + 1]);
-		node.setParam(paramsName[i], params[i]);
 	}
+	node.setParam("/move_base/TebLocalPlannerROS/xy_goal_tolerance", params[0]);
+	node.setParam("/move_base/TebLocalPlannerROS/yaw_goal_tolerance", params[1]);
+	node.setParam("/move_base/TebLocalPlannerROS/min_obstacle_dist", params[2]);
+	node.setParam("/move_base/global_costmap/inflation_layer/inflation_radius", params[3]);
+	node.setParam("/move_base/global_costmap/inflation_layer/cost_scaling_factor", params[4]);
+	node.setParam("/move_base/local_costmap/inflation_layer/inflation_radius", params[3]);
+	node.setParam("/move_base/local_costmap/inflation_layer/cost_scaling_factor", params[4]);
 
 	std::string pre = ros::package::getPath("arebot_navigation");
 
