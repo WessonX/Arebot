@@ -14,6 +14,8 @@ include_directories(${catkin_INCLUDE_DIRS})
 
 add_executable(${PROJECT_NAME}_save src/arebot_calib_save.cpp)
 add_executable(arebot_navi_save src/arebot_navi_save.cpp)
+add_executable(arebot_navi_get src/arebot_navi_get.cpp)
 
 target_link_libraries(${PROJECT_NAME}_save ${catkin_LIBRARIES})
 target_link_libraries(arebot_navi_save ${catkin_LIBRARIES})
+target_link_libraries(arebot_navi_get ${catkin_LIBRARIES})

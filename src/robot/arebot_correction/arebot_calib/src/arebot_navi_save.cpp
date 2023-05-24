@@ -3,6 +3,7 @@
 #include <ros/ros.h>
 
 const int PARAMS_NUM = 5;
+// by seq: xy_goal_tolerance, yaw_goal_tolerance, min_obstacle_dist, inflation_radius, cost_scaling_factor
 double params[PARAMS_NUM] = {0};
 
 int main(int argc, char **argv) {
@@ -12,18 +13,19 @@ int main(int argc, char **argv) {
 	for (int i = 0; i + 1 < argc && i < PARAMS_NUM; ++i) {
 		params[i] = atof(argv[i + 1]);
 	}
-	node.setParam("/move_base/TebLocalPlannerROS/xy_goal_tolerance", params[0]);
-	node.setParam("/move_base/TebLocalPlannerROS/yaw_goal_tolerance", params[1]);
-	node.setParam("/move_base/TebLocalPlannerROS/min_obstacle_dist", params[2]);
-	node.setParam("/move_base/global_costmap/inflation_layer/inflation_radius", params[3]);
-	node.setParam("/move_base/global_costmap/inflation_layer/cost_scaling_factor", params[4]);
-	node.setParam("/move_base/local_costmap/inflation_layer/inflation_radius", params[3]);
-	node.setParam("/move_base/local_costmap/inflation_layer/cost_scaling_factor", params[4]);
 
 	std::string pre = ros::package::getPath("arebot_navigation");
-
 	std::ofstream osPlaner(pre + "/params/planner/teb_local_planner_params_optimizing.yaml", std::ios::trunc);
 	std::ofstream osCostmap(pre + "/params/costmap/costmap_common_params_optimizing.yaml", std::ios::trunc);
+
+	if (!osPlaner.is_open()) {
+		std::cerr << "fail to open teb_local_planner_params_optimizing.yaml" << std::endl;
+		exit(1);
+	}
+	if (!osCostmap.is_open()) {
+		std::cerr << "fail to open costmap_common_params_optimizing.yaml" << std::endl;
+		exit(1);
+	}
 
 	osPlaner << "TebLocalPlannerROS:"
 			 << "\n  xy_goal_tolerance: " << params[0]
