@@ -5,10 +5,10 @@
 - tf2_web_republisher
 - web_video_server
 - yocs_virtual_sensor
-  
+- compressed_image_transport
 执行以下代码安装
 ```sh
-sudo apt-get install ros-$ROS_DISTRO-rosbridge-suite ros-$ROS_DISTRO-tf2-web-republisher ros-$ROS_DISTRO-web-video-server ros-$ROS_DISTRO-yocs-virtual-sensor
+sudo apt-get install ros-$ROS_DISTRO-rosbridge-suite ros-$ROS_DISTRO-tf2-web-republisher ros-$ROS_DISTRO-web-video-server ros-$ROS_DISTRO-yocs-virtual-sensor ros-$ROS_DISTRO-compressed-image-transport
 ```
 
 ## Usage
