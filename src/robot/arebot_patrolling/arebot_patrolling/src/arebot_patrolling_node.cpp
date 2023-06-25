@@ -38,12 +38,12 @@ int main(int argc, char **argv) {
 	std::vector<move_base_msgs::MoveBaseGoal> listGoal;
 	std::vector<std::string> listCmd;
 	int listNum = 0;
-	while (config) {
+
+	double x, y, z, w;
+	std::string cmd;
+	while (config >> x >> y >> z >> w) {
 		move_base_msgs::MoveBaseGoal goal;
-		std::string cmd;
 		goal.target_pose.header.frame_id = "map";
-		double x, y, z, w;
-		config >> x >> y >> z >> w;
 		goal.target_pose.pose.position.x = x;
 		goal.target_pose.pose.position.y = y;
 		goal.target_pose.pose.position.z = 0;
@@ -51,19 +51,15 @@ int main(int argc, char **argv) {
 		goal.target_pose.pose.orientation.y = 0;
 		goal.target_pose.pose.orientation.z = z;
 		goal.target_pose.pose.orientation.w = w;
-		// goal.target_pose.pose.position.x = int(x * 100) / 100.0f;
-		// goal.target_pose.pose.position.y = int(y * 100) / 100.0f;
-		// goal.target_pose.pose.orientation.z = int(z * 100) / 100.0f;
-		// goal.target_pose.pose.orientation.w = int(w * 100) / 100.0f;
 
 		config.get();
 		std::getline(config, cmd);
-		config.get();
 
 		listGoal.emplace_back(goal);
 		listCmd.emplace_back(cmd);
 		listNum++;
 	}
+	config.close();
 
 	// for (int i = 0; i < listNum; ++i) {
 	// 	ROS_INFO("%f %f %f %f",
